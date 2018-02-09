@@ -3,6 +3,7 @@
    ========================================================================== */
 
 .painting {
+	margin-top: rhythm(1);
 	margin-bottom: rhythm(3);
 
 	a {
@@ -25,6 +26,19 @@
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
+		}
+	}
+}
+
+.template-work {
+
+	.grid--gutter {
+		margin-right: rhythm(-1.5 * $grid-gutter-rhythm-unit); // Removes the `gutter` right
+		margin-left: rhythm(-1.5 * $grid-gutter-rhythm-unit); // Removes the `gutter` right
+
+		& > .grid__cell {
+			padding-right: rhythm(1.5 * $grid-gutter-rhythm-unit);
+			padding-left: rhythm(1.5 * $grid-gutter-rhythm-unit);
 		}
 	}
 }
