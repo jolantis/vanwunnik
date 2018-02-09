@@ -6,8 +6,10 @@
 	margin-top: rhythm(1);
 	margin-bottom: rhythm(3);
 
-	a {
-		cursor: zoom-in;
+	.js & {
+		a {
+			cursor: zoom-in;
+		}
 	}
 
 	&__info {
