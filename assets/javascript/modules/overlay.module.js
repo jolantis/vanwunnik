@@ -136,13 +136,14 @@ var Overlay = (function () {
 
 	window.addEventListener('popstate', function(event) {
 		var url = event.state;
+		// var openoverlaylinks = document.querySelectorAll('.js-overlay-open');
 
-		console.log(url);
+		// console.log(openoverlaylinks);
 
 		if (url !== null) {
 			var slug = url.substring(url.lastIndexOf('/') + 1)	;
 
-			console.log(slug, location.pathname);
+			// console.log(slug, location.pathname);
 			// console.log(slug);
 			// console.log(location.href);
 
