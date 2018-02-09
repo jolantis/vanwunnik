@@ -54,7 +54,7 @@ assets/stylesheets/*.css
 # Scripts
 assets/javascript/*.js
 assets/javascript/main/*.hint.js
-!assets/javascript/*.min.jsg
+!assets/javascript/*.min.js
 
 
 # ----------------------------------------------------------------------
