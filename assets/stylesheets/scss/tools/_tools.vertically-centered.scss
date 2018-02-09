@@ -1,0 +1,56 @@
+
+// --------------------------------------------------------------------------
+// Vertically centered
+// --------------------------------------------------------------------------
+// Center item within any width and height parent!
+// Based on: http://j.mp/1uePeET
+// --------------------------------------------------------------------------
+// Make sure to add 100% height to html and body elements; e.g. add following
+// to `base.page.scss` partial:
+// html,
+// body {
+//   height: 100%;
+// }
+// --------------------------------------------------------------------------
+// Example usage 1:
+// .Centered {
+//   @include  vertically-centered-parent();
+//   …
+// }
+// .Centered-item {
+//   @include vertically-centered-child();
+// }
+// --------------------------------------------------------------------------
+// Example usage 2 (within media query):
+// .Centered {
+//   @include breakpoint(medium) {
+//     @include vertically-centered-parent("left");
+//   }
+//   …
+// }
+// .Centered-item {
+//   @include breakpoint(medium) {
+//     @include vertically-centered-child();
+//   }
+// }
+// --------------------------------------------------------------------------
+
+@mixin vertically-centered-parent($text-align: "center", $psuedo-class: "before") {
+	text-align: #{$text-align}; // Horizontal centering too!
+
+	&:#{$psuedo-class} {
+		content: '';
+		display: inline-block;
+		height: 99.8%; // Do not use 100% to prevent vertical scrollbar!
+		vertical-align: middle;
+		margin-right: -.3em; // Adjusts for spacing
+	}
+}
+
+// The element to be centered, can also be of any width and height
+// --------------------------------------------------------------------------
+
+@mixin vertically-centered-child() {
+	display: inline-block;
+	vertical-align: middle;
+}

@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+/*
+	rosario.css
+	-------------------------------------------------------------------
+	Font Information:
+	Rosario is a classic semiserif typeface, weak contrast and smooth
+	endings. Produced carefully, nice and elegant, ideal for magazines
+	and academic journals. Rosario is the name of the city where the
+	designer lives.
+	-------------------------------------------------------------------
+	License:
+	SIL Open Font License, 1.1
+	https://www.fontsquirrel.com/license/rosario
+	-------------------------------------------------------------------
+	Download:
+	https://www.fontsquirrel.com/fonts/rosario
+	http://www.omnibus-type.com/fonts/rosario/
+	-------------------------------------------------------------------
+	Syntax:
+	https://css-tricks.com/snippets/css/using-font-face/
+	-------------------------------------------------------------------
+	Support:
+	- Chrome 3.5+
+	- Safari 3+
+	- Firefox 3.5+
+	- Opera 10.1+
+	- IE 9+
+	- Android 2.2+
+	- iOS 4.3+
+*/
+
+/* Regular */
+
+@font-face {
+    font-family: 'Rosario';
+    src: url('/assets/fonts/rosario/rosario-regular.woff2') format('woff2'),
+         url('/assets/fonts/rosario/rosario-regular.woff') format('woff'),
+         url('/assets/fonts/rosario/rosario-regular.ttf') format('truetype');
+    font-display: swap;                                                         /* options: auto, block, swap, fallback and optional */
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* Regular Italic */
+
+@font-face {
+    font-family: 'Rosario';
+    src: url('/assets/fonts/rosario/rosario-italic.woff2') format('woff2'),
+         url('/assets/fonts/rosario/rosario-italic.woff') format('woff'),
+         url('/assets/fonts/rosario/rosario-italic.ttf') format('truetype');
+    font-display: swap;                                                         /* options: auto, block, swap, fallback and optional */
+	font-weight: 400;
+	font-style: italic;
+}
+
+
+/* Bold */
+
+@font-face {
+    font-family: 'Rosario';
+    src: url('/assets/fonts/rosario/rosario-bold.woff2') format('woff2'),
+         url('/assets/fonts/rosario/rosario-bold.woff') format('woff'),
+         url('/assets/fonts/rosario/rosario-bold.ttf') format('truetype');
+    font-display: swap;                                                         /* options: auto, block, swap, fallback and optional */
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* Bold Italic */
+
+@font-face {
+    font-family: 'Rosario';
+    src: url('/assets/fonts/rosario/rosario-bold-italic.woff2') format('woff2'),
+         url('/assets/fonts/rosario/rosario-bold-italic.woff') format('woff'),
+         url('/assets/fonts/rosario/rosario-bold-italic.ttf') format('truetype');
+    font-display: swap;                                                         /* options: auto, block, swap, fallback and optional */
+	font-weight: 700;
+	font-style: italic;
+}

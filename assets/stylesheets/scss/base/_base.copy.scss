@@ -1,0 +1,415 @@
+/* ==========================================================================
+   Copy
+   ========================================================================== */
+
+/**
+ * Scoped styles of blocks of (body) content
+ */
+
+.copy {
+
+	/* Contain
+	   ========================================================================== */
+
+	&--contain {
+
+		// > *:not([class*="-width"]),
+		> *:not(.text-width):not(.full-width) {
+			margin-right: $contain-percentage;
+			margin-left: $contain-percentage;
+		}
+
+		> *:not(.text-width):not(.full-width),
+		> .figure-image.full-width figcaption {
+
+			@include breakpoint(medium) {
+				margin-right: rhythm($contain-rhythm-unit);
+				margin-left: rhythm($contain-rhythm-unit);
+			}
+
+			@include breakpoint(huge) {
+				margin-right: rhythm(6 * $contain-rhythm-unit);
+				margin-left: rhythm(6 * $contain-rhythm-unit);
+			}
+		}
+
+		> .figure-image {
+
+			.grid figcaption {
+				padding-right: rhythm(.5 * $grid-gutter-rhythm-unit);
+				padding-left: rhythm(.5 * $grid-gutter-rhythm-unit);
+			}
+		}
+
+		> .text-width {
+			padding-right: $contain-percentage;
+			padding-left: $contain-percentage;
+			// margin-right: auto; // To center ‘text’ width figure images
+			// margin-left: auto; // To center ‘text’ width figure images
+
+			@include breakpoint(medium) {
+				padding-right: rhythm($contain-rhythm-unit);
+				padding-left: rhythm($contain-rhythm-unit);
+				max-width: strip-unit($text-max-width) + (3.8 * strip-unit(rhythm($contain-rhythm-unit))) * 1em; // Figure image `text-width` is adds 4 times the width of the `contain-rhythm-unit` (to compensate for the left and right paddings!)
+			}
+
+			@include breakpoint(huge) {
+				padding-right: rhythm(6 * $contain-rhythm-unit);
+				padding-left: rhythm(6 * $contain-rhythm-unit);
+				max-width: strip-unit($text-max-width) + (2.3 * strip-unit(rhythm(6 * $contain-rhythm-unit))) * 1em; // Figure image `text-width` is adds 4 times the width of the `contain-rhythm-unit` (to compensate for the left and right paddings!)
+			}
+		}
+
+		> .full-width {
+			padding-right: $contain-percentage;
+			padding-left: $contain-percentage;
+
+			@include breakpoint(compact) {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
+		> h1, > h2, > h3, > h4, > h5, > h6,
+		> p,
+		> ul,
+		> ol,
+		> dl,
+		> time,
+		> table,
+		> form,
+		> .blockquote,
+		> .figure-image figcaption {
+			// max-width: strip-unit($text-max-width) + (2 * strip-unit(rhythm($contain-rhythm-unit))) * 1rem; // In REM's; *not* relative to (bigger) text size!
+			max-width: strip-unit($text-max-width) + (2 * strip-unit(rhythm($contain-rhythm-unit))) * 1em; // In EM's; relative to (bigger) text size!
+		}
+	}
+
+	/* Vertical spacing
+	   ========================================================================== */
+
+	/**
+	 * Set default vertical spacing for all elements that have not a `figure-*`
+	 * class and are not preceded by an element with a `figure-*` class.
+	 *
+	 * Based on 'The "Leftover Glue" problem' solution:
+	 * http://slides.com/heydon/effortless-style/#/22
+	 */
+
+	> *:not(.figure-image) + *:not(.figure-image) {
+		margin-top: rhythm(1);
+	}
+
+	/**
+	 * Reset (decrease) some margins for better typography (proximity)
+	 * See: http://zellwk.com/blog/wrong-about-vertical-rhythm/
+	 */
+
+	> *:not(.figure-image) + p,
+	> *:not(.figure-image) + ul,
+	> *:not(.figure-image) + ol,
+	> *:not(.figure-image) + dl {
+		margin-top: rhythm(.5) !important;
+	}
+
+	> h2 + *:not(.figure-image),
+	> h3 + *:not(.figure-image) {
+		margin-top: rhythm(.5) !important;
+	}
+
+	> h4 + p,
+	> h5 + p,
+	> h6 + p {
+		margin-top: 0 !important;
+	}
+
+	/**
+	 * Set (additonal) vertical spacing 'above' `figure-image` blocks:
+	 */
+
+	> *:not(.figure-image) + .figure-image,
+	> .figure-image + *:not(.figure-image) {
+		margin-top: rhythm(3);
+	}
+
+	/**
+	 * Set (rhythm based) vertical spacing inbewteen `figure-image` blocks.
+	 */
+
+	> .figure-image + .figure-image > span,
+	> .figure-image + .figure-image .grid__cell,
+	> *:not(.figure-image) + .figure-image .grid__cell {
+		// margin-top: rhythm(4 * $grid-gutter-rhythm-unit);
+		margin-top: rhythm($grid-gutter-rhythm-unit);
+	}
+
+	/**
+	 * Undo top margin by negetively offsetting the whole grid row
+	 */
+
+	> *:not(.figure-image) + .figure-image .grid {
+		margin-top: rhythm(-4 * $grid-gutter-rhythm-unit);
+	}
+
+	/**
+	 * Set (rhythm based) vertical spacing inbewteen `full-width` blocks.
+	 */
+
+	> .full-width + .full-width > span,
+	> .full-width + .full-width .grid__cell,
+	> *:not(.figure-image) + .full-width .grid__cell {
+		// margin-top: rhythm(2 * $grid-gutter-rhythm-unit);
+
+		@include breakpoint(compact) {
+			margin-top: rhythm($grid-gutter-rhythm-unit);
+		}
+	}
+
+	/**
+	 * Undo top margin by negetively offsetting the whole grid row
+	 */
+
+	> *:not(.figure-image) + .full-width .grid {
+
+		@include breakpoint(compact) {
+			margin-top: rhythm(-$grid-gutter-rhythm-unit);
+		}
+	}
+
+	/**
+	 * Increase (rhythm based) vertical spacing bewteen `figure-image`
+	 * and `full-width` figure blocks from compact and above.
+	 */
+
+	> .figure-image:not(.text-width):not(.full-width) + .text-width,
+	> .text-width + .figure-image:not(.text-width),
+	> .figure-image:not(.full-width) + .full-width {
+
+		@include breakpoint(compact) {
+			margin-top: rhythm(1.5);
+		}
+		@include breakpoint(medium) {
+			margin-top: rhythm(3);
+		}
+	}
+
+	> .full-width + .figure-image:not(.full-width) > span,
+	> .full-width + .figure-image:not(.full-width) .grid__cell {
+
+		@include breakpoint(compact) {
+			margin-top: rhythm(1.5 + (2 * $grid-gutter-rhythm-unit));
+		}
+		@include breakpoint(medium) {
+			margin-top: rhythm(3 + (2 * $grid-gutter-rhythm-unit));
+		}
+	}
+
+	/**
+	 * Set (rhythm based) vertical spacing between images within a
+	 * figure grid column (must be the same as the grid gutter).
+	 */
+
+	> .figure-image .figure-image + .figure-image {
+		margin-top: rhythm($grid-gutter-rhythm-unit);
+	}
+
+	/* Figure grid (horizontal spacing)
+	   ========================================================================== */
+
+	> .figure-image .grid {
+		@extend %grid--gutter;
+	}
+
+	/* Hyphenation
+	========================================================================== */
+
+	> p,
+	> ul li,
+	> ol li,
+	> dl dt,
+	> dl dd,
+	> time,
+	> table,
+	figcaption p {
+		hyphens: auto;
+	}
+
+	/**
+	 * Overrule hyphenation
+	 *
+	 * For Kirby tag 'nohyphen';
+	 * Usage: (nohyphen: <your text not to be hyphenated>)
+	 */
+
+	.text-no-hyphen {
+		hyphens: none;
+	}
+
+	/* Paragraphs
+	   ========================================================================== */
+
+	p:first-of-type:not(.text-no-intro) {
+		@extend .delta-heading;
+	}
+
+	// p:first-child { }
+
+	// p:first-child:first-letter { }
+
+	p {
+		@extend %text-hang;
+	}
+
+	/* Headings
+	   ========================================================================== */
+
+	/* Scoped headings (see extend-selectors.scss for corresponding 'unscoped' classes) */
+
+	// h1.tera-heading { @extend .tera-heading; }
+	// h1.giga-heading { @extend .giga-heading; }
+	// h1.mega-heading { @extend .mega-heading; }
+
+	h1 { @extend .alpha-heading; }
+	h2 { @extend .beta-heading; }
+	h3 { @extend .delta-heading; }
+	h4 { @extend .epsilon-heading; }
+	h5,
+	h6 { @extend .zeta-heading; }
+
+	/* Figures
+	   ========================================================================== */
+
+	// figure {}
+
+	/* Pull, block- and run-in quotes
+	   ========================================================================== */
+
+	// .quote {}
+
+	// .blockquote {}
+
+	// .pullquote {}
+
+	/* Inline Elements
+	   ========================================================================== */
+
+	i,
+	em,
+	cite {
+		@extend %text-italic;
+	}
+
+	b,
+	strong {
+		@extend %text-bold;
+	}
+
+	small {
+		@extend %text-small;
+	}
+
+	// time {
+	// 	@extend %text-time;
+	// }
+
+	mark {
+		background-color: rgb(248,248,0);
+		color: $color-base-black;
+	}
+
+	ins {
+		@include underline($color-gray-m-light, rgb(253,254,206));
+
+		background-color: rgb(253,254,206);
+		color: $color-base-black;
+	}
+
+	del {
+		background-color: rgb(248,0,0);
+		color: $color-base-black;
+		// text-decoration: line-through;
+	}
+
+	abbr {
+		border-bottom: none;
+		text-decoration: underline;
+		text-decoration: underline dotted;
+		text-transform: lowercase;
+		letter-spacing: .05em;
+		font-variant: small-caps; // https://developer.mozilla.org/en-US/docs/CSS/font-variant
+	}
+
+	code,
+	kbd,
+	pre,
+	samp {
+		@include mono-font();
+	}
+
+	code {
+		background-color: $color-gray-x-light;
+	}
+
+	/* Lists
+	   ========================================================================== */
+
+	/* Unordered lists */
+
+	ul,
+	ol {
+		@extend .list;
+		// @extend .list--plain;
+	}
+
+	/* Definition lists */
+
+	// dl { }
+
+	dt {
+		font-weight: 700;
+	}
+
+	dd {
+		margin-left: rhythm(1);
+	}
+
+	/* Links
+	   ========================================================================== */
+
+	a:not(.button) {
+		@extend .link;
+	}
+
+	/* External page links */
+
+	// [href^="http:"]:not([href*="mydomain.com"]) { }
+
+	/* Secure link */
+
+	// [href^="https"]:before { content: "\1F512 "; }
+
+	/* PDF link */
+
+	// [href$="pdf"] { }
+
+	/* Email link */
+
+	// [href^="mailto:"] { }
+
+	/* Twitter link */
+
+	// [href*="twitter.com"] {}
+
+	/* Tables
+	   ========================================================================== */
+
+	table {
+		@extend .table;
+		@extend .table--striped;
+	}
+
+	/* Numerals
+	   ========================================================================== */
+
+	@extend .numerals;
+}

@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Painting
+   ========================================================================== */
+
+.painting {
+	margin-bottom: rhythm(3);
+
+	a {
+		cursor: zoom-in;
+	}
+
+	&__info {
+		margin-top: rhythm(.5);
+
+		> h3 {
+			// @include responsive-text-size($text-epsilon);
+			// @include responsive-text-size($text-pico);
+
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		> h3,
+		> p {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+	}
+}

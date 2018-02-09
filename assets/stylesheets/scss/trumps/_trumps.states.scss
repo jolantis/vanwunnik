@@ -1,0 +1,72 @@
+/* ==========================================================================
+   States (https://github.com/suitcss/utils-state)
+   ========================================================================== */
+
+/**
+ * Completely remove from the flow and screen readers.
+ */
+
+.is-hidden,
+%is-hidden {
+	display: none !important;
+}
+
+/**
+ * Completely remove from the flow but leave available to screen readers.
+ */
+
+@mixin is-hidden-visually() {
+	position: absolute !important;
+	overflow: hidden !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+	padding: 0 !important;
+	width: 1px !important;
+	height: 1px !important;
+	border: 0 !important;
+}
+
+.is-hidden-visually,
+%is-hidden-visually { @include is-hidden-visually(); }
+
+
+/**
+ * Control visibility without affecting flow.
+ *
+ * And use for nice trick: http://j.mp/1qhPKiU
+ */
+
+ %is-invisible {
+	visibility: hidden !important;
+}
+
+%is-visible {
+	visibility: visible !important;
+}
+
+/**
+ * Hide text (use for image replacement).
+ */
+
+@mixin is-hidden-text($param: false) {
+	// Scott Kellum method (http://wp.me/p4WtR-2xq)
+	@if $param == skm {
+		text-indent: 200%;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+	// H5BP method (http://j.mp/SjVjgP)
+	@else {
+		background-color: transparent !important;
+		border: 0 !important;
+		overflow: hidden !important;
+
+		&:before {
+			content: "" !important;
+			display: block !important;
+			width: 0 !important;
+			height: 100% !important;
+		}
+	}
+}
+
+%is-hidden-text { @include is-hidden-text(); }

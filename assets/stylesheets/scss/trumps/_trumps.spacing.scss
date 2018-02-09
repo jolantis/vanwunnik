@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Spacing (https://github.com/suitcss/utils-dimension)
+   ========================================================================== */
+
+/**
+ * Vertical (rhythm) spacing
+ *
+ * Trailer spacing = bottom margin
+ * Leader spacing = top margin
+ * Rhythm spacing = top + bottom margins
+ */
+
+%space-trailer-xs  { margin-bottom: rhythm(.25) !important; }
+%space-trailer-s   { margin-bottom: rhythm(.5) !important; }
+.space-trailer-m,
+%space-trailer-m   { margin-bottom: rhythm(1) !important; }
+%space-trailer-l   { margin-bottom: rhythm(2) !important; }
+%space-trailer-xl  { margin-bottom: rhythm(4) !important; }
+
+%space-leader-xs   { margin-top: rhythm(.25) !important; }
+%space-leader-s    { margin-top: rhythm(.5) !important; }
+.space-leader-m,
+%space-leader-m    { margin-top: rhythm(1) !important; }
+%space-leader-l    { margin-top: rhythm(2) !important; }
+.space-leader-xl,
+%space-leader-xl   { margin-top: rhythm(3) !important; }
+
+.space-trailer-ggr,
+%space-trailer-ggr { margin-bottom: rhythm($grid-gutter-rhythm-unit); } // ggr = grid gutter rhytm
+
+%space-rhythm-s    { margin-top: rhythm(.5); margin-bottom: rhythm(.5) !important; }
+%space-rhythm-m    { margin-top: rhythm(1); margin-bottom: rhythm(1) !important; }
+%space-rhythm-l    { margin-top: rhythm(2); margin-bottom: rhythm(2) !important; }
+%space-rhythm-xl   { margin-top: rhythm(4); margin-bottom: rhythm(4) !important; }

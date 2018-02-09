@@ -1,0 +1,99 @@
+/* ==========================================================================
+   CSS Grid
+   ========================================================================== */
+
+.cssgrid {
+	display: block;
+	padding-right: 0;
+	padding-left: 0;
+	// visibility: hidden;
+	opacity: 0;
+	transition: opacity .05s 0 ease-out;
+
+	@supports (display:grid) {
+
+		&--grid {
+
+			@include breakpoint(compact) {
+
+				display: grid;
+				grid-gap: rhythm($grid-gutter-rhythm-unit);
+				grid-template-columns: repeat(2, 1fr);
+				// grid-auto-rows: minmax(auto, auto);
+				grid-auto-flow: dense; // Try to fill in the gaps by placing smaller items from further down the grid into the gaps left higher up the grid!
+
+				.cssgrid__item {
+					margin-bottom: 0;
+				}
+			}
+
+			@include breakpoint(medium) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+	}
+
+	&--grid,
+	&--list {
+
+		.js & {
+			// visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	.no-js & {
+		// visibility: visible;
+		opacity: 1;
+	}
+}
+
+.cssgrid__item {
+	margin-bottom: rhythm($grid-gutter-rhythm-unit);
+	background-color: $color-gray-x-light;
+
+	@supports (display:grid) {
+
+		@include breakpoint(compact) {
+
+			.figure-image,
+			.figure-image > span {
+				width: 100%;
+				height: 100%;
+			}
+
+			.figure-image img {
+				object-fit: cover;
+			}
+
+			&--tall {
+				grid-row: auto / span 2;
+
+				&:nth-child(1) {
+
+					+ .cssgrid__item:not(.cssgrid__item--tall) {
+						grid-column: auto / span 2;
+						grid-row: auto / span 2;
+					}
+				}
+
+				// &:nth-child(6n+1) {
+				// 	grid-column: 1 / -1; // span all columns (no matter how many columns there are!)
+
+				// 	@include breakpoint(medium) {
+				// 		grid-row: auto / span 2;
+				// 	}
+				// }
+			}
+
+			&--wide {
+				grid-column: 1 / -1; // span all columns (no matter how many columns there are!)
+			}
+
+			&:nth-child(6n+1):not(.cssgrid__item--tall):not(.cssgrid__item--wide) {
+				grid-column: auto / span 2;
+				grid-row: auto / span 2;
+			}
+		}
+	}
+}

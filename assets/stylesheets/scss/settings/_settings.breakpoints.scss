@@ -1,0 +1,16 @@
+// --------------------------------------------------------------------------
+// Breakpoints
+// --------------------------------------------------------------------------
+// Breakpoints (target width in em's = pixel width / base font size)
+// Apply proportional media queries (em's): http://bit.ly/JT9ZzI
+// Design from the content out, rather than the canvas in: http://bit.ly/JTa5aA
+// Adjust the breakpoints to best fit content and (visual) design
+
+$breakpoints: (
+	small:   20em,
+	compact: 32em,
+	medium:  48em,
+	large:   64em,
+	wide:    106em,
+	huge:    160em
+);;

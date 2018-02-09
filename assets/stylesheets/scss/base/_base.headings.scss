@@ -1,0 +1,74 @@
+/* ==========================================================================
+-s* ==========================================================================
+   Headings
+   ========================================================================== */
+
+/**
+ * Shared heading settings
+ *
+ * 1. Enables font kerning in all browsers:
+ *
+ * - http://blog.typekit.com/2014/02/05/kerning-on-the-web/
+ * - http://bocoup.com/weblog/text-rendering/
+ *
+ * The text-rendering options are: `auto` (default), `optimizeLegibility` and
+ * `optimizeSpeed`. Be careful with the `optimizeLegibility` setting, because
+ * it can be really slow and bog down an entire page. For now best to only
+ * apply to bigger headings if using at all.
+ */
+
+%heading-settings {
+	@include heading-font(400);
+
+	hanging-punctuation: first;
+	letter-spacing: .01rem;
+
+	.fonts-loaded & {
+		font-family: $heading-web-font;
+	}
+}
+
+/**
+ * Heading sizes
+ */
+
+/* Alpha */
+
+.alpha-heading {
+	@extend %heading-settings;
+	@extend %text-kern;
+	@include responsive-text-size($text-alpha);
+}
+
+/* Beta */
+
+.beta-heading {
+	@extend %heading-settings;
+	@extend %text-kern;
+	@include responsive-text-size($text-beta);
+}
+
+/* Gamma */
+
+.gamma-heading {
+	@extend %heading-settings;
+	@include responsive-text-size($text-gamma);
+}
+
+/* Delta */
+
+.delta-heading {
+	@extend %heading-settings;
+
+	@include breakpoint(large) {
+		@include responsive-text-size($text-delta);
+	}
+}
+
+/* Epsilon + Zeta */
+
+.epsilon-heading,
+.zeta-heading {
+	@extend %heading-settings;
+	@include responsive-text-size($text-epsilon);
+}

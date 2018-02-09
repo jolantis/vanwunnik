@@ -1,0 +1,10 @@
+// --------------------------------------------------------------------------
+// Paths (http://j.mp/Tx8lGt)
+// --------------------------------------------------------------------------
+// Set (css) image paths in only one place.
+// Example usage: `background-image: img-url('background.png');`
+// --------------------------------------------------------------------------
+
+@function img-url($filename) {
+	@return url(/assets/stylesheets/img/#{$filename});
+}

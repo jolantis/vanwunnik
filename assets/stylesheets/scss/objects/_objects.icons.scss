@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Icons (svg)
+   ========================================================================== */
+
+.icon {
+	display: inline-flex; // ‘Inline’ otherwise an anhor link with a ‘button’ class will be full width!
+	align-items: center;
+
+	> svg {
+		width: 1em;
+		height: 1em;
+		// width: 24px;
+		// height: 24px;
+		// fill: currentColor; // Cascading svg fill color (https://css-tricks.com/cascading-svg-fill-color/)
+		// stroke: currentColor; // Cascading svg stroke color
+	}
+
+	&--left {
+
+		> svg {
+			margin-right: .3em;
+		}
+	}
+
+	&--right {
+
+		> svg {
+			margin-left: .3em;
+		}
+	}
+
+	&--big {
+
+		> svg {
+			width: 1.3em;
+			height: 1.3em;
+		}
+	}
+}

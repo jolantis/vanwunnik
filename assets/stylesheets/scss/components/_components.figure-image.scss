@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Figure image
+   ========================================================================== */
+
+/**
+ * A figure element (and image) within a (multifigure) grid
+ *
+ * Can be generated in (Kirby) Markdown with (figure: ) syntax
+ * Contains one image by default, but can handle multiple images (multifigure)
+ *
+ * The multi-figure uses the .grid component to layout the images.
+ *
+ * Markup examples:
+ *
+ * <figure class="figure-image">
+ * 		<img src="..." alt="Just a single image (no grid)" />
+ * </figure>
+ *
+ * <figure class="figure-image grid grid--gutter">
+ * 		<img src="..." class="grid__cell small-1of2" alt="First image in row" />
+ * 		<img src="..." class="grid__cell small-1of2" alt="Secondimage in row" />
+ * </figure>
+ *
+ * <figure class="figure-image grid grid--align-center">
+ * 		<img src="..." class="grid__cell compact-2of3" alt="A centered image" />
+ * 		<figcaption>Caption...</figcaption>
+ * </figure>
+ *
+ */
+
+.figure-image {
+	position: relative;
+	overflow: hidden;
+
+	// a {
+	// 	position: absolute !important;
+	// 	top: 0;
+	// 	right: 0;
+	// 	bottom: 0;
+	// 	left: 0;
+	// }
+
+	// > span { // CHECK IF NOT CLASS NAME!!!
+	// 	box-shadow: 0 .1rem .5rem rgba($color-base-black,.4); // MAKE VARIABLE!!!
+	// }
+
+	figcaption {
+		@include responsive-text-size($text-pico); // (Re)set font-size (it has been set to `0` by wrapping `.grid` element!)
+
+		margin-top: rhythm(.3);
+		// margin-bottom: rhythm(1.5);
+		// text-align: center; // Center align text in figcaption
+	}
+}

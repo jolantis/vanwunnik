@@ -1,0 +1,161 @@
+// --------------------------------------------------------------------------
+// Typography
+// --------------------------------------------------------------------------
+
+// Responsive text base
+// --------------------------------------------------------------------------
+// Either use responsive or fluid text base (next) mixin. Do not use both!
+// --------------------------------------------------------------------------
+// Generates procentual based font sizes for breakpoints defined in
+// $breakpoints setting variable.
+// --------------------------------------------------------------------------
+// Add to `html {}` or `body {}` element like this:
+// html {
+//   @include responsive-base-text();
+// }
+
+@mixin responsive-base-text($target-map: $text-sizes, $breakpoints: $breakpoints) {
+	@include responsive-text-size($target-map, $breakpoints, $text-sizes, true, $fluid: false);
+}
+
+// Fluid text base
+// --------------------------------------------------------------------------
+// Either use responsive (above) or fluid text base mixin. Do not use both!
+// --------------------------------------------------------------------------
+// Based on:
+// - http://zellwk.com/blog/viewport-based-typography/
+// - https://github.com/zellwk/typi
+// --------------------------------------------------------------------------
+// Generates viewport unit based font sizes for breakpoints defined in
+// $breakpoints setting variable.
+// --------------------------------------------------------------------------
+// Add to `html {}` or `body {}` element like this:
+// html {
+//   @include fluid-base-text();
+// }
+
+@mixin fluid-base-text($target-map: $text-sizes, $breakpoints: $breakpoints) {
+	@include responsive-text-size($target-map, $breakpoints, $text-sizes, true, $fluid: true);
+}
+
+// Responsive text size
+// --------------------------------------------------------------------------
+
+@mixin responsive-text-size($target-map, $breakpoints: $breakpoints, $text-sizes: $text-sizes, $base: false, $rem: true, $fluid: false) {
+	$typi-map: (target: $target-map, breakpoints: $breakpoints, text-sizes: $text-sizes, base: $base, rem: $rem);
+
+	@each $breakpoint-key, $font-bp-val in $target-map {
+		$typi-map: map-merge($typi-map, (breakpoint: $breakpoint-key));
+
+		@if $breakpoint-key == null {
+			@include responsive-text-properties($typi-map);
+		}
+		// If there is a corresponding `$text-sizes` key for current `$breakpoint-key` in `$breakpoints` map
+		@else if map-has-key($breakpoints, $breakpoint-key) {
+
+			// If fluid (base) text is true
+			@if $fluid == true {
+				$min-bp-key: nth(nth($text-sizes, 2), 1);
+				$max-bp-key: nth(nth($text-sizes, -1), 1);
+
+				// If a line-height is defined in `$text-sizes` map for current `$breakpoint-key`
+				@if type-of($font-bp-val) == "list" and length($font-bp-val) > 1 {
+
+					// If `$breakpoint-key` is the smallest key in `$breakpoints` map
+					@if $breakpoint-key == $min-bp-key {
+						// Output *fluid* font size and line-height
+						@include responsive-text-breakpoint($typi-map, $fluid);
+					}
+					// If `$breakpoint-key` is not the largest (and not the smalles) key in `$breakpoints` map
+					@else if $breakpoint-key != $max-bp-key  {
+						// *Only* output responsive line-height
+						@include responsive-text-breakpoint($typi-map, $line-height-only: true);
+					}
+				}
+				// Else if no line-height is defined in `$text-sizes` map for current `$breakpoint-key`
+				@else {
+					// And `$breakpoint-key` is the smallest key in `$breakpoints` map
+					@if $breakpoint-key == $min-bp-key {
+						// Output *fluid* font size and line-height
+						@include responsive-text-breakpoint($typi-map, $fluid);
+					}
+				}
+				// If `$breakpoint-key` is the largest key in `$breakpoints` map
+				@if $breakpoint-key == $max-bp-key {
+					// Output responsive font size and line-height
+					@include responsive-text-breakpoint($typi-map);
+				}
+			}
+			// If fluid (base) text is false
+			@else {
+				// Output responsive font size and line-height
+				@include responsive-text-breakpoint($typi-map);
+			}
+		}
+		@else {
+			// Throws sass error
+			@error "No corresponding '#{$breakpoint-key}' text-sizes key found in `$breakpoints` map!";
+		}
+	}
+}
+
+// Responsive text breakpoint
+// --------------------------------------------------------------------------
+// Allows use of breakpoint mixin.
+
+@mixin responsive-text-breakpoint($typi-map, $fluid: false, $line-height-only: false) {
+	$target: map-get($typi-map, target);
+	$breakpoint-key: map-get($typi-map, breakpoint);
+	// $breakpoints: map-get($typi-map, breakpoints);
+	// $font-bp-val: map-get($target, $breakpoint-key);
+
+	@include breakpoint($breakpoint-key) {
+		@include responsive-text-properties($typi-map, $fluid, $line-height-only);
+	}
+}
+
+// Responsive text properties
+// --------------------------------------------------------------------------
+// Writes (viewport unit based) font-size (and line height) properties
+
+@mixin responsive-text-properties($typi-map, $fluid: false, $line-height-only: false) {
+	$target: map-get($typi-map, target);
+	$breakpoint-key: map-get($typi-map, breakpoint);
+
+	$text-sizes: map-get($typi-map, text-sizes);
+	$rem: map-get($typi-map, rem);
+	$base: map-get($typi-map, base);
+
+	$font-bp-val: map-get($target, $breakpoint-key);
+
+	$font-size: null;
+	$line-height: null;
+
+	@if type-of($font-bp-val) == "list" and length($font-bp-val) > 1 {
+		$font-size: nth($font-bp-val, 1);
+		$line-height: nth($font-bp-val, 2);
+
+		@if $line-height-only == false {
+			@if $fluid == true {
+				// font-size: font-size($font-size, $breakpoint-key, $text-sizes, $rem, $base);
+				font-size: fluid-font-size($font-size, $breakpoint-key, $text-sizes, $rem, $base);
+			}
+			@else {
+				font-size: font-size($font-size, $breakpoint-key, $text-sizes, $rem, $base);
+			}
+		}
+		line-height: $line-height;
+	}
+	@else {
+		$font-size: $font-bp-val;
+
+		@if $fluid == true {
+			// font-size: font-size($font-size, $breakpoint-key, $text-sizes, $rem, $base);
+			font-size: fluid-font-size($font-size, $breakpoint-key, $text-sizes, $rem, $base);
+		}
+		@else {
+			font-size: font-size($font-size, $breakpoint-key, $text-sizes, $rem, $base);
+		}
+	}
+}
+

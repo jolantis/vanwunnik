@@ -1,0 +1,69 @@
+/* ==========================================================================
+	 Nav
+	 ========================================================================== */
+
+/* Nav main */
+
+.nav-main {
+	overflow: hidden;
+
+	&__list {
+		margin-left: rhythm(-.5);
+		margin-right: rhythm(-.5);
+	}
+
+	&__item {
+		padding-top: rhythm(.5);
+		padding-right: rhythm(.5);
+		padding-bottom: rhythm(.5);
+		padding-left: rhythm(.5);
+
+		@include breakpoint(medium) {
+			padding-top: rhythm(.5);
+			padding-right: rhythm(.5);
+			padding-bottom: rhythm(.5);
+			padding-left: rhythm(.5);
+		}
+
+
+		a {
+			color: $color-base-aqua;
+
+			&:hover,
+			&:focus {
+				color: $color-link-dark;
+			}
+		}
+
+		&[aria-current="page"] {
+
+			a {
+				color: $color-link-dark;
+			}
+		}
+
+		header & {
+
+			.template-home &,
+			.template-journal-post &,
+			.template-error & {
+
+				a {
+					color: rgba($color-link-light,.7);
+
+					&:hover,
+					&:focus {
+						color: $color-link-light;
+					}
+				}
+
+				&[aria-current="page"] {
+
+					a {
+						color: $color-link-light;
+					}
+				}
+			}
+		}
+	}
+}

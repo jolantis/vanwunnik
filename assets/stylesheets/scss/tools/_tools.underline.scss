@@ -1,0 +1,27 @@
+// --------------------------------------------------------------------------
+// Undertline (http://j.mp/1jEBz5g, http://codepen.io/ghepting/pen/tLnHK/)
+// --------------------------------------------------------------------------
+
+// Defaults
+// --------------------------------------------------------------------------
+
+$weight: .04em !default;
+$offset: .14em !default;
+
+// (One retina-pixel) underlining
+// --------------------------------------------------------------------------
+
+@mixin underline($color, $text-shadow-color: $background-color, $weight: $weight, $offset: $offset) {
+	position: relative;
+	background-image: linear-gradient(to top, transparent, transparent $offset, $color $offset, $color $offset + $weight, transparent $offset + $weight); // The more beautiful underlining!
+	text-decoration: none;
+	text-shadow: -1px -1px 0 $text-shadow-color, 1px -1px 0 $text-shadow-color, -1px 1px 0 $text-shadow-color, 1px 1px 0 $text-shadow-color; // Breaks underlining on descenders!
+
+	.no-cssgradients & {
+		text-decoration: underline !important;
+	}
+
+	@include hidpi-media(1.5) {
+		background-image: linear-gradient(to top, transparent, transparent $offset, $color $offset, $color ($offset + $weight / 2), transparent ($offset + $weight / 2)); // Apply .5 pixel (1 retina-pixel) for HiDPI/Retina screens!
+	}
+}

@@ -1,0 +1,97 @@
+# ----------------------------------------------------------------------
+# Always-ignore extensions (incl. OS or editor folders/files)
+# ----------------------------------------------------------------------
+
+*~
+*.diff
+*.css.map
+*.esproj
+*.err
+*.log
+*.orig
+*.rej
+*.sass-cache
+*.sublime-project
+*.sublime-workspace
+*.swo
+*.swp
+*.vi
+
+._*
+.buildpath
+.cache
+.com.apple*
+.CVS
+.dropbox
+.DS_Store
+.hg
+.idea
+.project
+.settings
+.svn
+.tmp
+.tmproj
+.tm_properties
+.vscode
+
+intermediate
+publish
+Thumbs.db
+
+
+# ----------------------------------------------------------------------
+# Ignore grunt workflow folders/files
+# ----------------------------------------------------------------------
+
+# Node Modules
+node_modules
+npm-debug.log
+
+# Styles
+assets/stylesheets/*.css
+!assets/stylesheets/*.min.css
+
+# Scripts
+assets/javascript/*.js
+assets/javascript/main/*.hint.js
+!assets/javascript/*.min.jsg
+
+
+# ----------------------------------------------------------------------
+# Ignore project folders/files
+# ----------------------------------------------------------------------
+
+#temp/**/*
+#design/**/*
+
+
+# ----------------------------------------------------------------------
+# Ignore Kirby CMS folders/files
+# ----------------------------------------------------------------------
+
+# Panel
+site/accounts/*
+!site/accounts/.gitkeep
+assets/avatars/*
+!assets/avatars/.gitkeep
+
+# Cache
+site/cache/*
+!site/cache/.gitkeep
+
+# License
+site/config/config.license.php
+
+# Local (dev) configs
+site/config/config.*.xip.io.php
+
+# Thumbs
+thumbs/*
+!thumbs/.gitkeep
+
+
+# ----------------------------------------------------------------------
+# Ignore content folder (separate repository and/or submodule)
+# ----------------------------------------------------------------------
+
+content

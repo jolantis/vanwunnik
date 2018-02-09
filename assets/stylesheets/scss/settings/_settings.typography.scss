@@ -1,0 +1,104 @@
+// --------------------------------------------------------------------------
+// Typography
+// --------------------------------------------------------------------------
+
+// Font stacks
+// --------------------------------------------------------------------------
+
+$sans-font-stack:               "Helvetica Neue Thin", "HelveticaNeue-Thin", "Helvetica Light", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, ArialMT, sans-serif;
+$sans-web-font:                 "Rosario";
+
+$heading-font-stack:            "Helvetica Neue Bold", "HelveticaNeue-Bold", "Helvetica Bold", "Helvetica-Bold", "Arial Bold", "Arial-BoldMT", Helvetica, Helvetica, Arial, sans-serif;
+$heading-web-font:              "Rosario";
+
+$serif-font-stack:              "Lucida Bright", "LucidaBright", Georgia, serif;
+$mono-font-stack:               Monaco, "Courier New", "CourierNewPSMT", Courier, monospace, serif;
+
+// Text sizing
+// --------------------------------------------------------------------------
+
+$text-sizes: (
+	null:                       (16px, 1.5),                                    // base font size(s) and line height(s)
+	small:                      (16px),
+	compact:                    (18px, 1.6),
+	medium:                     (20px),
+	large:                      (22px),
+	wide:                       (24px),
+	// huge:                       (26px),
+);
+
+$text-bg-title-hero: (                                                          // hero heading font size(s) and line height(s)
+	null:                       (2.5rem, 1.136),
+	medium:                     (3rem),
+	large:                      (5rem),
+	// wide:                      (3rem),
+);
+
+$text-bg-title-plus: (                                                          // hero heading font size(s) and line height(s)
+	null:                       (2rem, 1.136),
+	// compact:                    (2.5rem),
+	medium:                     (2.5rem),
+	// medium:                     (2.5rem, 1.125),
+	large:                      (3rem),
+	wide:                       (3.75rem),
+	huge:                       (3rem),
+);
+
+$text-bg-title: (                                                                // bg-link heading font size(s) and line height(s)
+	null:                       (1.5rem, 1.136),
+	compact:                    (1.75rem),
+	medium:                     (1.25rem),
+	large:                      (1.5rem),
+	wide:                       (1.75rem),
+	huge:                       (2.5rem),
+);
+
+$text-alpha: (                                                                  // alpha heading font size(s) and line height(s)
+	null:                       (2rem, 1.25),
+	medium:                     (2.25rem),
+	// medium:                     (2.5rem, 1.125),
+	large:                      (2.5rem),
+	// large:                      (3rem, 1.05),
+);
+
+$text-beta: (                                                                   // beta heading font size(s) and line height(s)
+	null:                       (1.5rem, 1.154),
+	medium:                     (1.75rem),
+	// medium:                     (2rem, 1.25),
+	huge:                       (2.25rem),
+	// medium:                     (2.25rem, 1.25),
+);
+
+$text-gamma: (                                                                  // gamma heading font size(s) and line height(s)
+	null:                       (1.375rem, 1.136),
+	medium:                     (1.5rem),
+	// medium:                     (1.5rem, 1.25),
+	large:                      (1.75rem),
+	// large:                      (1.75rem, 1.25),
+);
+
+$text-delta: (                                                                  // delta heading font size(s) and line height(s)
+	null:                       (1.125rem),
+	// null:                       (1.125rem, 1.111),
+	medium:                     (1.25rem),
+	// medium:                     (1.125rem, 1.222),
+	huge:                       (1.5rem),
+);
+
+$text-epsilon: (                                                                // epsilon heading font size(s) and line height(s)
+	null:                       (1rem),
+	// null:                       (1rem, 1.4),
+);
+
+$text-zeta: (                                                                   // zeta heading font size(s) and line height(s)
+	null:                       (1rem),
+	// null:                       (1rem, 1.4),
+);
+
+$text-nano: (                                                                   // nano heading font size(s) and line height(s)
+	null:                       (.875rem),
+);
+
+$text-pico: (                                                                   // pico heading font size(s) and line height(s)
+	null:                       (.75rem),
+);

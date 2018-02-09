@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Temporary message
+   ========================================================================== */
+
+.temp-message {
+	// @include responsive-text-size($text-temp);
+
+	position: absolute;
+	right: 0;
+	bottom: rhythm(1);
+	left: 0;
+	display: block;
+	text-transform: lowercase;
+	padding-right: rhythm(1);
+	padding-left: rhythm(1);
+	// font-weight: 700;
+
+	@include breakpoint(compact) {
+		bottom: rhythm(1.5);
+		padding-right: rhythm(1.5);
+		padding-left: rhythm(1.5);
+	}
+
+	@include breakpoint(medium) {
+		bottom: rhythm(2);
+		padding-right: rhythm(2);
+		padding-left: rhythm(2);
+	}
+
+	&,
+	h1,
+	p {
+		color: $color-snow-white;
+	}
+
+	a {
+		@include underline($color-snow-white, transparent);
+
+		&:hover {
+			background-image: none;
+		}
+	}
+}

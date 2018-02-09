@@ -1,0 +1,128 @@
+// --------------------------------------------------------------------------
+// Typography
+// --------------------------------------------------------------------------
+
+// Font size
+// --------------------------------------------------------------------------
+// Calls `calc-font-size()` or `base-size()`
+
+@function font-size(
+	$font-size,
+	$breakpoint-key,
+	$text-sizes,
+	$rem,
+	$base
+) {
+	@if $base == true {
+		@return base-size($font-size);
+	} @else {
+		@return calc-font-size($font-size, $breakpoint-key, $text-sizes, $rem);
+	}
+}
+
+// Calculate font-size
+// --------------------------------------------------------------------------
+// Returns correct rem value depending on breakpoint
+
+@function calc-font-size(
+	$font-size,
+	$breakpoint-key,
+	$text-sizes,
+	$rem
+) {
+	// Convert px and em into rem
+	@if $rem {
+		@if unit($font-size) == 'em' {
+			@return strip-unit($font-size) * 1rem;
+		}
+		@else if unit($font-size) == 'px' {
+			$basemap: map-get($text-sizes, $breakpoint-key);
+			$basefont: if(type-of($basemap) == 'list', nth($basemap, 1), $basemap);
+
+			@return $font-size / $basefont * 1rem;
+		}
+		@else {
+			@return $font-size;
+		}
+	}
+
+	// Converts rem and px into em
+	@else {
+		@if unit($font-size) == 'rem' {
+			@return strip-unit($font-size) * 1em;
+		}
+		@else if unit($font-size) == 'px' {
+			$basemap: map-get($text-sizes, $breakpoint-key);
+			$basefont: if(type-of($basemap) == 'list', nth($basemap, 1), $basemap);
+
+			@return convert-to-em($font-size, $basefont);
+		}
+		@else {
+			@return $font-size;
+		}
+	}
+}
+
+// Fluid font size
+// --------------------------------------------------------------------------
+// Returns viewport unit based font-size calculation,
+// e.g. `calc(93.75% + 8 * (100vw - 420px) / 1340);`
+
+@function fluid-font-size($font-size, $breakpoint-key, $text-sizes, $rem, $base) {
+	$min-bp-key: nth(nth($text-sizes, 2), 1);									// samllest breakpoint key (e.g. `small` key in $text-sizes);
+	$max-bp-key: nth(nth($text-sizes, -1), 1);									// largest breakpoint key
+	$min-font-size: nth((nth((nth($text-sizes, 1)), 2)), 1);					// smallest text size in pixels (e.g. `null` key in $text-sizes)
+	$max-font-size: nth((nth((nth($text-sizes, -1)), 2)), 1);					// biggest text size in pixels (e.g. largest breakpoint key in $text-sizes)
+	$min-bp-val: map-get($breakpoints, $min-bp-key);
+	$max-bp-val: map-get($breakpoints, $max-bp-key);
+	$min-base-val: font-size($font-size, $min-bp-key, $text-sizes, $rem, $base);
+	$max-base-val: font-size($max-font-size, $max-bp-key, $text-sizes, $rem, $base);
+	$min-vw-val: strip-unit($min-bp-val) * 16px;
+	$max-vw-val: strip-unit($max-bp-val) * 16px;
+
+	@return calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * (100vw - #{$min-vw-val}) / #{strip-unit($max-vw-val - $min-vw-val)});
+}
+
+// Base font size (convert font size to percentages)
+// --------------------------------------------------------------------------
+
+@function base-size($font-size) {
+	@if unit($font-size) == 'px' {
+		@return $font-size / 16px * 100%;
+	}
+	@else {
+		@error 'Font size must be written in pixels!';
+	}
+}
+
+// Convert font size to em
+// --------------------------------------------------------------------------
+
+@function convert-to-em($font-size, $ref-size: false) {
+	@if ($ref-size) {
+		@if unit($font-size) == 'px' {
+			@return $font-size / $ref-size * 1em;
+		}
+		@else if unit($font-size) == 'rem' {
+			@return strip-unit($font-size) * 1em;
+		}
+		@else if unit($font-size) == 'em' {
+			@return $font-size;
+		}
+	}
+}
+
+// Convert font size to rem
+// --------------------------------------------------------------------------
+
+@function convert-to-rem($font-size) {
+	@if unit($font-size) == 'px' {
+		@return strip-unit($font-size) / 16 * 1rem;
+	}
+	@else if unit($font-size) == 'em' {
+		@return strip-unit($font-size) * 1rem;
+	}
+	@else if unit($font-size) == 'rem' {
+		@return $font-size;
+	}
+}

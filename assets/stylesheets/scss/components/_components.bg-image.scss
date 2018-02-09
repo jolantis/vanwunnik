@@ -1,0 +1,131 @@
+/* ==========================================================================
+   Bg (background) image
+   ========================================================================== */
+
+/**
+ * Fluid, intrinsic ratio background images
+ *
+ * Example HTML:
+ * <div class="bg-image default-3by2 large-16by9"
+ *   style="background-image:url(cover.jpg)">
+ * </div>
+ *
+ * See:
+ * - http://nicolasgallagher.com/flexible-css-cover-images/
+ * - http://codepen.io/necolas/pen/Aksni
+ */
+
+.bg-image {
+	display: block;
+	overflow: hidden;
+
+	// box-shadow: 0 .1rem .5rem rgba($color-base-black,.4); // MAKE VARIABLE!!!
+
+	&--link {
+
+		.bg-image__image {
+			max-height: 44vh;
+			min-height: 30vw;
+		}
+
+		@media screen and (orientation:landscape) {
+			.bg-image__image {
+				max-height: 64vh;
+			}
+		}
+
+		.bg-image__placeholder {
+
+			&,
+			.no-js &,
+			.js &.lazyloaded {
+				opacity: .6;
+				animation: none; // disable animation
+				transition: opacity .65s .25s ease-out;
+
+				&:hover {
+					opacity: .2;
+				}
+			}
+
+			.touchevents & {
+				opacity: .5 !important;
+			}
+		}
+	}
+
+	&__placeholder {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+		// width: 100%;
+		// height: 100%;
+		background-color: $color-base-black;
+
+		.grid__cell & {
+			left: rhythm(.5 * $grid-gutter-rhythm-unit);
+			right: rhythm(.5 * $grid-gutter-rhythm-unit);
+			// width: calc(100% - #{rhythm(1 * $grid-gutter-rhythm-unit)});
+		}
+
+		.js &.lazyload {
+			opacity: 1;
+			will-change: opacity;
+			pointer-events: none;
+		}
+
+		&,
+		.no-js &,
+		.js &.lazyloaded {
+			opacity: .5;
+			animation: fade-in-transparent .5s ease-in .15s normal both; // fade-in animation
+		}
+	}
+
+	&__image {
+		display: block;
+		background-position: center;
+		background-size: cover; // contain
+		background-repeat: no-repeat;
+		min-width: 100%;
+		height: 100%; // Important, te keep bg image (vertically) centered, when window height decreases!
+
+		.no-js .bg-image > & {
+			display: none; // Noscript pattern
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			padding-bottom: 100%; // Default size of background image: a square (100% of the width)
+		}
+	}
+}
+
+/**
+ * Different aspect ratio for different breakpoints
+ */
+
+/* For small and below (default) */
+
+.default-3by2 .bg-image__image:before {
+	padding-bottom: percentage(2/3) !important;
+}
+
+.default-4by3 .bg-image__image:before {
+	padding-bottom: percentage(3/4) !important;
+}
+
+.default-16by9 .bg-image__image:before {
+	padding-bottom: percentage(9/16) !important;
+}
+
+/* For medium breakpoint and up */
+
+@include breakpoint(medium) {
+	.medium-3by2 .bg-image__image:before { padding-bottom: percentage(2/3) !important; }
+}

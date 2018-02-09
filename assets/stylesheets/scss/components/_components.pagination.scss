@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Pagination
+   ========================================================================== */
+
+.pagination {
+	margin-top: rhythm(3);
+	margin-bottom: rhythm(-.5);
+
+	&__item {
+		color: $color-link-light;
+
+		&:first-child {
+			margin-bottom: rhythm(.5);
+		}
+
+		a {
+			color: $color-link-dark;
+			// padding-top: rhythm(.25);
+			// padding-bottom: rhythm(.25);
+			white-space:nowrap;
+		}
+
+		&--newer {
+			padding-right: rhythm(.25);
+		}
+
+		&--older {
+			padding-left: rhythm(.25);
+		}
+	}
+
+	.template-work & {
+		margin-top: 0;
+	}
+}

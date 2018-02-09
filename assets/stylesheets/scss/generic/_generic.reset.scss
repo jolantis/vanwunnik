@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+/**
+ * As well as using normalize.css, it is often advantageous to remove all
+ * margins from certain elements.
+ */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * Resets all headings to look like normal text
+ * Styled within 'copy' scope
+ */
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+}
+
+/**
+ * Reset links
+ */
+
+a {
+	font-weight: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+	color: inherit;
+	background: transparent;
+}
+
+/**
+ * Remove the (300ms) tapping delay from clickable elements
+ */
+
+a,
+area,
+button,
+input,
+label,
+select,
+textarea,
+[tabindex] {
+	-ms-touch-action: manipulation;
+		touch-action: manipulation;
+}
+
+/**
+ * Reset list items back to normal (block) display. This makes it possible to
+ * use lists for semantic markup without needing to set this each time. Lists
+ * only look like ‘lists’ in blocks of copy.
+ */
+
+li {
+	display: block;
+	list-style: none;
+	list-style-image: none;
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * Reset inline elements
+ */
+
+small, strong,
+th, td,
+b, i,
+em,
+cite {
+	font-weight: inherit;
+}
+
+/**
+ * Give a help cursor to elements that give extra info on `:hover`.
+ */
+
+abbr[title],
+dfn[title] {
+	cursor: help;
+}
+
+/**
+ * Remove underlines from potentially troublesome elements.
+ */
+
+u,
+ins {
+	text-decoration: none;
+}
+
+/**
+ * Set font styling of <address /> block to normal (instead of italic)
+ */
+
+address {
+	font-style: normal;
+}

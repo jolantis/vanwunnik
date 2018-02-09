@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Hero (full page) image
+   ========================================================================== */
+
+.hero {
+	position: relative;
+	height: 100%;
+	min-height: 24rem;
+	// max-height: 178vw; // More or less the ratio of an iPhone 6 screen!!
+	color:	$color-base-white;
+
+	// White border!
+	// @include breakpoint(compact) {
+	// 	padding: rhythm($grid-gutter-rhythm-unit / 2);
+
+	// 	.bg-image__placeholder {
+	// 		top: rhythm($grid-gutter-rhythm-unit / 2);
+	// 		left: rhythm($grid-gutter-rhythm-unit / 2);
+	// 		right: rhythm($grid-gutter-rhythm-unit / 2);
+	// 		bottom: rhythm($grid-gutter-rhythm-unit / 2);
+	// 	}
+	// }
+
+	// @include breakpoint(medium) {
+	// 	max-height: 108vw;
+	// }
+}
+
+.hero__text {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	// padding-bottom: rhythm(1);
+	padding-right: $contain-percentage;
+	padding-left: $contain-percentage;
+}
+
+.hero__title {
+	@extend %heading-settings;
+	@extend %text-kern;
+	@include responsive-text-size($text-bg-title-hero);
+
+	max-width: 100%; // IE 10-11 fix for FLexbug #2: https://github.com/philipwalton/flexbugs#flexbug-2
+	margin-bottom: rhythm(.25);
+}
+
+.hero__title,
+.hero__subtitle,
+.hero__meta {
+	text-align: center;
+	color:	$color-base-white;
+}
+
+// .hero__meta {
+// 	@extend %text-small;
+// }
+
+.hero__button,
+.hero__buttons > a {
+	pointer-events: auto;
+
+	.hero__subtitle + & {
+		margin-top: rhythm(.75);
+	}
+}
+
+.hero__buttons > a + a {
+	margin-left: rhythm(1);
+}
+
+.hero__meta {
+	display: block;
+	position: absolute;
+	overflow: hidden;
+	bottom: 0;
+	left: 0; // To center in IE 10-11
+	right: 0; // To center in IE 10-11
+	padding-bottom: rhythm(1.5); // Lenght of vertical line
+	// margin-bottom: rhythm(.5);
+	color: rgba($color-link-light,.7);
+
+	// Vertical line
+	&:after {
+		position: absolute;
+		top: rhythm(1.1);
+		bottom: 0;
+		left: 50%;
+		left: calc(50% - #{rhythm(.05 / 2)});
+		content: "";
+		border-left: solid .05rem rgba($color-link-light,.7);
+	}
+
+	&:hover,
+	&:focus {
+		color: $color-link-light;
+
+		&:after {
+			border-color: $color-link-light;
+		}
+
+		.no-touchevents & {
+			padding-bottom: calc(#{rhythm(1.5)} + 2px); // Lenght of vertical line
+		}
+	}
+	&:active {
+
+		.no-touchevents & {
+			padding-bottom: rhythm(1.5); // Lenght of vertical line
+		}
+	}
+
+	// &:before { // arrow head
+	// 	position: absolute;
+	// 	bottom: rhythm(1);
+	// 	bottom: 0;
+	// 	left: calc(50% - #{rhythm(.2)});
+	// 	content: "";
+	// 	width: 0;
+	// 	height: 0;
+	// 	border-left: rhythm(.2) solid transparent;
+	// 	border-right: rhythm(.2) solid transparent;
+	// 	border-top: rhythm(.3) solid $color-base-white;
+	// }
+}

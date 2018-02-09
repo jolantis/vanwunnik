@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Masthead (aka logo)
+   ========================================================================== */
+
+.masthead {
+	// position: relative;
+	display: block;
+	padding-top: rhythm(.5);
+	padding-bottom: rhythm(.5);
+	font-weight: 400; // Reset default browser weight for h1 (e.g. ‘bold’)
+
+	h1,
+	a {
+		font-weight: 300; // Reset default browser weight for h1 (e.g. ‘bold’)
+	}
+
+	.template-home & {
+		color: $color-link-light;
+	}
+
+	a {
+		color: $color-base-aqua;
+
+		&:hover {
+			color: $color-link-dark;
+		}
+
+		.template-journal-post &,
+		.template-error & {
+			color: rgba($color-link-light,.7);
+
+			&:hover {
+				color: $color-link-light;
+			}
+		}
+	}
+}

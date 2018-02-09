@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Overlay
+   ========================================================================== */
+
+.overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: $z-index-overlay;
+	background-color: $color-base-white;
+
+	&[aria-hidden="true"] {
+		display: none;
+	}
+
+	&[aria-hidden="false"] {
+		display: block;
+	}
+}
+
+.is-open-overlay { // Class is added to body when overlay is open/active to disable scroll on onderlying body/content!
+	overflow: hidden;
+}
+
+/**
+ * Close button
+ */
+
+.overlay__close {
+	position: absolute;
+	z-index: 1;
+	top: rhythm(.05);
+	right: rhythm(.05);
+	opacity: .7;
+
+	a {
+		padding: rhythm(.4);
+	}
+}
+
+/**
+ * Content (AJAX target) container
+ */
+
+.overlay__content { // Imageset in 'overlay' output
+	position: relative;
+	height: 100%;
+	overflow: scroll;
+}
+
+/**
+ * (Lazyloaded) image(set)
+ */
+
+.overlay-image {
+	position: relative;
+	height: 100%;
+
+	&__imageset {
+		position: absolute;
+
+		// Center vertical and horizontal
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+
+		width: 97vw;
+		// width: calc(100vw - #{rhythm(2 * $grid-gutter-rhythm-unit)});
+		max-height: 97vh;
+		// max-height: calc(100vh - #{rhythm(2 * $grid-gutter-rhythm-unit)});
+
+		// height: XXvw; // Height is calculated directly inline in imageset snippet => height : width ratio => 9 / 16 = .5625 * 100 = 56.25vw
+		// max-width: XXvh; / Max width is calculated directly inline in imageset snippet => width : height ratio => 16 / 9 = 1.778 * 100 = 177.8vh
+
+		contain: content; // Improve rendering speed in supported browsers.
+		overflow: hidden; // Fixes a rare glitch in Firefox.
+	}
+
+	&__element {
+		height: 100%;
+		width: auto;
+		transition: opacity .65s .25s ease-out;
+		opacity: 0;
+		will-change: opacity;
+
+		&.lazyloaded {
+			opacity: 1;
+			will-change: auto;
+		}
+	}
+}

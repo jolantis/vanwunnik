@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Contentinfo (aka site footer)
+   ========================================================================== */
+
+.contentinfo {
+	margin-top: rhythm(3);
+	// text-align: center;
+
+	.copy > p {
+		// max-width: strip-unit($text-max-width) + (2 * strip-unit(rhythm($contain-rhythm-unit))) * 1rem; // In REM's; *not* relative to (bigger) text size!
+		max-width: 100%;
+	}
+
+	footer {
+		padding-top: rhythm(1);
+		padding-bottom: rhythm(1);
+	}
+}

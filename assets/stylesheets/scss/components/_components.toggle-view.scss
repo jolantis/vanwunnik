@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Toggle
+   ========================================================================== */
+
+.toggle {
+	margin-bottom: rhythm($grid-gutter-rhythm-unit);
+	margin-top: rhythm(-1.6);
+	display: none;
+	opacity: 0;
+	transition: opacity .65s .25s ease-out;
+
+	button {
+		padding: rhythm(.2);
+
+		.no-touchevents & {
+			padding: rhythm(.2);
+		}
+
+		&:first-of-type {
+			margin-right: rhythm(.05);
+		}
+	}
+
+	// .copy + & {
+	// 	margin-top: 0;
+
+	// 	@media (min-width: 86em) {
+	// 		margin-top: rhythm(-1.9);
+	// 	}
+	// }
+
+	.js & {
+		// visibility: visible;
+		opacity: 1;
+	}
+
+	.no-js & {
+		display: none;
+	}
+
+	@supports (display:grid) {
+
+		@include breakpoint(compact) {
+			display: block;
+		}
+	}
+}
+
+.toggle__item {
+	color: $color-gray-light;
+
+	&.is-active {
+
+		&,
+		&:hover,
+		&:active {
+			color: $color-base-black;
+			background-color: $color-gray-x-light;
+			cursor: default;
+			transform: none;
+		}
+	}
+}

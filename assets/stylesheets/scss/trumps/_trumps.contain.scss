@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Contain
+   ========================================================================== */
+
+/**
+ * Contain padding
+ */
+
+.contain-padding,
+%contain-padding {
+	padding-right: $contain-percentage !important;
+	padding-left: $contain-percentage !important;
+
+	@include breakpoint(medium) {
+		// padding-right: rhythm($grid-gutter-rhythm-unit) !important;
+		// padding-left: rhythm($grid-gutter-rhythm-unit) !important;
+		padding-right: rhythm($contain-rhythm-unit) !important;
+		padding-left: rhythm($contain-rhythm-unit) !important;
+	}
+
+	@include breakpoint(huge) {
+		padding-right: rhythm(6 * $contain-rhythm-unit) !important;
+		padding-left: rhythm(6 * $contain-rhythm-unit) !important;
+	}
+}
+
+/**
+ * Contain width
+ */
+
+.contain-width,
+%contain-width {
+	@extend %contain-padding;
+
+	padding-right: auto !important;
+	padding-left: auto !important;
+	// max-width: strip-unit($figure-max-width) + (2 * strip-unit(rhythm($contain-rhythm-unit))) * 1em; // Figure max width in EM's
+	max-width: strip-unit($text-max-width) + (2 * strip-unit(rhythm($contain-rhythm-unit))) * 1em; // Text max width in EM's
+}

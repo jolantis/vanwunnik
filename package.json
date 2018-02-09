@@ -1,0 +1,32 @@
+{
+  "name": "vanwunnik",
+  "description": "Jos van Wunnik — Artist & Painter",
+  "version": "0.2.6",
+  "url": "https://vanwunnik.com",
+  "author": "Jonathan van Wunnik <jonathan@artlantis.nl>",
+  "copyright": "Jonathan van Wunnik (Artlantis.nl)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/jolantis/vanwunnik"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-bump": "^0.8.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^3.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-criticalcss": "^2.1.0",
+    "grunt-css-mqpacker": "^3.0.1",
+    "grunt-csso": "^2.2.1",
+    "grunt-notify": "^0.4.5",
+    "grunt-sass": "^2.0.0",
+    "grunt-svgmin": "^4.0.0",
+    "jshint-stylish": "^2.2.1"
+  }
+}
