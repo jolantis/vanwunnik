@@ -79,7 +79,16 @@
 	right: 0; // To center in IE 10-11
 	padding-bottom: rhythm(1.5); // Lenght of vertical line
 	// margin-bottom: rhythm(.5);
-	color: rgba($color-link-light,.7);
+
+	a {
+		color: rgba($color-link-light,.7);
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $color-link-light;
+		}
+	}
 
 	// Vertical line
 	&:after {
@@ -90,25 +99,6 @@
 		left: calc(50% - #{rhythm(.05 / 2)});
 		content: "";
 		border-left: solid .05rem rgba($color-link-light,.7);
-	}
-
-	&:hover,
-	&:focus {
-		color: $color-link-light;
-
-		&:after {
-			border-color: $color-link-light;
-		}
-
-		.no-touchevents & {
-			padding-bottom: calc(#{rhythm(1.5)} + 2px); // Lenght of vertical line
-		}
-	}
-	&:active {
-
-		.no-touchevents & {
-			padding-bottom: rhythm(1.5); // Lenght of vertical line
-		}
 	}
 
 	// &:before { // arrow head
