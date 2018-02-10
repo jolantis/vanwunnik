@@ -16,7 +16,7 @@ Archive pagination
  */
 
 c::set('pagination.journal', 12);
-c::set('pagination.work', 12);
+c::set('pagination.work', 16);
 
 /* -----------------------------------------------------------------------------
 Filtered archive pagination
