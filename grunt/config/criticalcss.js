@@ -91,7 +91,7 @@ module.exports = function(grunt) {
 		},
 		info : {
 			options: {
-				url: 'http://vanwunnik.test/information',
+				url: 'http://vanwunnik.test/info',
 				width: 1440,
 				height: 900,
 				outputfile: '<%= project.styles_critical %>/info.css',
