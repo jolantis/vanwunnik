@@ -34,6 +34,10 @@
 
 .template-work {
 
+	[role="main"] {
+		overflow: hidden;
+	}
+
 	.grid--gutter {
 		margin-right: rhythm(-1.5 * $grid-gutter-rhythm-unit); // Removes the `gutter` right
 		margin-left: rhythm(-1.5 * $grid-gutter-rhythm-unit); // Removes the `gutter` right
