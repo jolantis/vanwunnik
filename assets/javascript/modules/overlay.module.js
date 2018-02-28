@@ -127,6 +127,8 @@ var Overlay = (function () {
 		// }
 
 		var openoverlaylinks = document.querySelectorAll('.js-overlay-open');
+
+		// if (openoverlaylinks.length > 0 && window.innerWidth >= 768) {
 		if (openoverlaylinks.length > 0) {
 			for (i = 0; i < openoverlaylinks.length; i++) {
 				openoverlaylinks[i].addEventListener('click', Overlay.open, false);
@@ -140,6 +142,7 @@ var Overlay = (function () {
 
 		// console.log(openoverlaylinks);
 
+		// if (url !== null && window.innerWidth >= 768) {
 		if (url !== null) {
 			var slug = url.substring(url.lastIndexOf('/') + 1)	;
 
