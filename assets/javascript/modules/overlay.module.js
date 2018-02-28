@@ -38,7 +38,9 @@ var Overlay = (function () {
 	function removeContent() {
 		var overlay = document.querySelector('.js-overlay');
 
-		overlay.setAttribute('aria-hidden', true);
+		if (overlay !== null) {
+			overlay.setAttribute('aria-hidden', true);
+		}
 		document.body.classList.remove('is-open-overlay');
 	}
 
