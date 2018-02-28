@@ -64,8 +64,15 @@ var Filters = (function () {
 		}
 	}
 
-	// Debounced (delayed) callback of `init` function after resize!
-	window.addEventListener('resize', debounce(init), false);
+	// Store the window width
+	var windowwidth = window.innerWidth;
+
+	// Check window width has actually changed and it's not just iOS triggering a resize event on scroll!
+	if (window.innerWidth !== windowwidth) {
+
+		// Debounced (delayed) callback of `init` function after resize!
+		window.addEventListener('resize', debounce(init), false);
+	}
 
 	/**
 	 * Return public methods
