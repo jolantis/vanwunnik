@@ -14,7 +14,7 @@
 if (c::get('google.analytics') == true && c::get('google.analytics.id') != 'TRACKING ID IS NOT SET'):
 
 	// Respect user's privacy (https://blog.j15h.nu/web-analytics-privacy/)
-	if (navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && navigator.msDoNotTrack != "1"): ?>
+	if ('navigator.doNotTrack' != 'yes' && 'navigator.doNotTrack' != '1' && 'navigator.msDoNotTrack' != '1'): ?>
 
 		<script>window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;ga('create','<?php echo c::get("google.analytics.id", "TRACKING ID IS NOT SET"); ?>','<?php echo str::substr($site->url(), 7); ?>');ga('set', 'anonymizeIp', true);ga('set', 'forceSSL', true);ga('send','pageview')</script>
 		<script src="https://www.google-analytics.com/analytics.js" async defer></script>
