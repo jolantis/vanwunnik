@@ -10,5 +10,5 @@ Tracking is disabled by default for local and staging environments.
 
 */
 
-c::set('google.analytics', false);                                              // [1] Set tracking method
-c::set('google.analytics.id', 'TRACKING ID IS NOT SET');                        // [2] Google Analytics ID
+c::set('google.analytics', true);                                               // [1] Set tracking method
+c::set('google.analytics.id', 'UA-2189978-3');                                  // [2] Google Analytics ID
