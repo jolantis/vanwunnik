@@ -57,8 +57,7 @@
 // 	@extend %text-small;
 // }
 
-.hero__button,
-.hero__buttons > a {
+.hero__buttons {
 	pointer-events: auto;
 
 	.hero__subtitle + & {
