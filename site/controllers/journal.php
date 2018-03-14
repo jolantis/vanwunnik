@@ -2,8 +2,8 @@
 return function($site, $pages, $page, $args) {
 
 	// Set defaults
-	$page_num            = (isset($args['page_num'])) ? ($args['page_num']) : 1;
-	$pagination          = (c::get('pagination.' . $page->intendedTemplate()) == false) ? false : true;
+	$page_num     = (isset($args['page_num'])) ? ($args['page_num']) : 1;
+	$pagination   = (c::get('pagination.' . $page->intendedTemplate()) == false) ? false : true;
 	// $pagination_filtered = (c::get('pagination.filtered') == true) ? true : false;
 
 	// Fetch key-value filter pair
@@ -12,7 +12,7 @@ return function($site, $pages, $page, $args) {
 	$filter_value = (cookie::exists('filter_value' . $lang_code)) ? cookie::get('filter_value' . $lang_code) : false;
 
 	// Fetch the basic set of pages
-	$page_items          = $page->children()->visible()->flip();
+	$page_items   = $page->children()->visible()->flip();
 
 	# If pagination
 	if($pagination) {
