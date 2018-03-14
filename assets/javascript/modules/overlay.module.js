@@ -158,7 +158,7 @@ var Overlay = (function () {
 			// 	console.log('PIET');
 			// }
 
-			if (slug !== 'work' && isNaN(slug) === true && location.pathname.indexOf('series') === -1) {
+			if ((slug !== 'werk' || slug !== 'work') && isNaN(slug) === true && location.pathname.indexOf('series') === -1) {
 			// if (location.pathname !== '/work') {
 				var overlay = document.querySelector('.js-overlay');
 				var closebutton = document.querySelector('.js-overlay-close');
