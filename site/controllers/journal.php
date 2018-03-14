@@ -7,8 +7,9 @@ return function($site, $pages, $page, $args) {
 	// $pagination_filtered = (c::get('pagination.filtered') == true) ? true : false;
 
 	// Fetch key-value filter pair
-	$filter_key          = (cookie::exists('filter_key')) ? cookie::get('filter_key', false) : false;
-	$filter_value        = (cookie::exists('filter_value')) ? cookie::get('filter_value', false): false;
+	$lang_code    = (site()->language()->code() == 'en') ? '_en' : '';
+	$filter_key   = (cookie::exists('filter_key' . $lang_code)) ? cookie::get('filter_key' . $lang_code) : false;
+	$filter_value = (cookie::exists('filter_value' . $lang_code)) ? cookie::get('filter_value' . $lang_code) : false;
 
 	// Fetch the basic set of pages
 	$page_items          = $page->children()->visible()->flip();

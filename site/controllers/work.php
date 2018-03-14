@@ -11,8 +11,14 @@ return function($site, $pages, $page, $args) {
 	$filter_value        = (isset($args['filter_value'])) ? ($args['filter_value']) : false;
 
 	# Set (or remove) filter (key-value pair) cookies
-	($filter_key && $filter_value) ? cookie::set('filter_key', $filter_key, 0) : cookie::remove('filter_key');
-	($filter_value && $filter_key) ? cookie::set('filter_value', $filter_value, 0) : cookie::remove('filter_value');
+	if(site()->language()->code() == 'en') {
+		($filter_key && $filter_value) ? cookie::set('filter_key_en', $filter_key, 0) : cookie::remove('filter_key_en');
+		($filter_value && $filter_key) ? cookie::set('filter_value_en', $filter_value, 0) : cookie::remove('filter_value_en');
+	}
+	else {
+		($filter_key && $filter_value) ? cookie::set('filter_key', $filter_key, 0) : cookie::remove('filter_key');
+		($filter_value && $filter_key) ? cookie::set('filter_value', $filter_value, 0) : cookie::remove('filter_value');
+	}
 
 	// Fetch the basic set of pages
 	$page_items          = $page->children()->visible()->flip();

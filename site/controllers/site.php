@@ -6,8 +6,9 @@ return function($site, $pages, $page, $args) {
 	$pagination   = false;
 
 	// Fetch key-value filter pair
-	$filter_key   = (cookie::exists('filter_key')) ? cookie::get('filter_key') : false;
-	$filter_value = (cookie::exists('filter_value')) ? cookie::get('filter_value'): false;
+	$lang_code    = (site()->language()->code() == 'en') ? '_en' : '';
+	$filter_key   = (cookie::exists('filter_key' . $lang_code)) ? cookie::get('filter_key' . $lang_code) : false;
+	$filter_value = (cookie::exists('filter_value' . $lang_code)) ? cookie::get('filter_value' . $lang_code) : false;
 
 	return compact('page_num', 'pagination', 'filter_key', 'filter_value');
 

@@ -12,11 +12,10 @@ return function($site, $pages, $page, $args) {
 	$page_num     = false;
 	$pagination   = false;
 
-	// Set key-value filter pair
-	// $filter_key   = (isset($args['filter_key'])) ? ((($args['filter_key']) == 'tag') ? 'tags' : ($args['filter_key'])) : false;
-	// $filter_value = (isset($args['filter_value'])) ? ($args['filter_value']) : false;
-	$filter_key   = (cookie::exists('filter_key')) ? cookie::get('filter_key') : false;
-	$filter_value = (cookie::exists('filter_value')) ? cookie::get('filter_value') : false;
+	// Fetch key-value filter pair
+	$lang_code    = (site()->language()->code() == 'en') ? '_en' : '';
+	$filter_key   = (cookie::exists('filter_key' . $lang_code)) ? cookie::get('filter_key' . $lang_code) : false;
+	$filter_value = (cookie::exists('filter_value' . $lang_code)) ? cookie::get('filter_value' . $lang_code) : false;
 
 	// Fetch the basic set of pages
 	$page_items   = ($filter_key && $filter_value) ? $page->siblings()->visible()->filterBy($filter_key, tagunslug($filter_value), ',') : $page->siblings()->visible();
