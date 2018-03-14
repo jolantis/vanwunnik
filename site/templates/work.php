@@ -8,7 +8,8 @@
 			<?php echo ($page->long_title()->exists() && $page->long_title()->isNotEmpty()) ? $page->long_title()->smartypants()->widont() : $page->title()->smartypants()->widont(); ?>
 		</h1>
 
-		<?php snippet('filters', array('filter_key' => 'series', 'sort' => 'abc')); ?>
+		<?php $filter_key = (site()->language()->code() == 'nl') ? 'serie' : 'series'; ?>
+		<?php snippet('filters', array('filter_key' => $filter_key, 'sort' => 'abc')); ?>
 		<?php //snippet('filters'); ?>
 
 		<section class="grid grid--gutter grid--align-bottom">

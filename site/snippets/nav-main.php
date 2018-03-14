@@ -3,7 +3,8 @@
 // SNIPPET
 // ----------------------------------------------------------
 
-$loc = isset($loc) ? $loc : false;
+$filter_key = (site()->language()->code() == 'nl' && $filter_key == 'series') ? 'serie' : $filter_key;
+
 $location = isset($location) ? $location : false;
 
 ////////////////////////////////////////////////////////// ?>
