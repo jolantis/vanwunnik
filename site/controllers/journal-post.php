@@ -21,6 +21,9 @@ return function($site, $pages, $page, $args) {
 	$page_items   = ($filter_key && $filter_value) ? $page->siblings()->visible()->filterBy($filter_key, tagunslug($filter_value), ',') : $page->siblings()->visible();
 	// $index      = $page_items->indexOf($page);
 
+	# Get translated posts only for current language
+	$page_items = $page_items->translated();
+
 	// Set next and prev (sibling) pages
 	$prev = $page->prev_sibling($page_items);
 	$next = $page->next_sibling($page_items);

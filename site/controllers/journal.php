@@ -26,6 +26,9 @@ return function($site, $pages, $page, $args) {
 	# Filter by date to exclude future posts
 	$page_items = $page_items->filterBy('date', '<', time());
 
+	# Get translated posts only for current language
+	$page_items = $page_items->translated();
+
 	# Set pagination
 	$pagination = $page_items->pagination();
 
