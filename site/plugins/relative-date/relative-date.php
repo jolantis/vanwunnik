@@ -8,7 +8,7 @@ class RelativeDate {
 
   public function __construct($date) {
     $this->carbon = new Carbon\Carbon($date);
-    Carbon\Carbon::setLocale(site()->locale());
+	Carbon\Carbon::setLocale((c::get('language.multi', false)) ? site()->language()->code() : 'en');
   }
 
   public function __call($name, $args) {
