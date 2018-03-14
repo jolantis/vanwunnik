@@ -2,9 +2,9 @@
 return function($site, $pages, $page, $args) {
 
 	// First unset (remove) filter (key-value pair) cookies
-	// if referer url does not contain 'blog'!
-	if(!str::contains(kirby()->request()->referer(), 'blog')) {
-		$filter_key = false; cookie::remove('filter_key');
+	// If referer url does not contain 'dagboke' or 'journal'!
+	if(!str::contains(kirby()->request()->referer(), 'dagboek') && !str::contains(kirby()->request()->referer(), 'journal')) {
+		$filter_key   = false; cookie::remove('filter_key');
 		$filter_value = false; cookie::remove('filter_value');
 	}
 
