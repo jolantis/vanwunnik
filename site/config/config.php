@@ -113,7 +113,7 @@ react to the locale settings
 
 */
 
-// c::set('date.handler', 'strftime');
+c::set('date.handler', 'strftime');
 
 
 /* -----------------------------------------------------------------------------
