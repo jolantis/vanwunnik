@@ -4,16 +4,17 @@
 // ----------------------------------------------------------
 
 $loc = isset($loc) ? $loc : false;
+$location = isset($location) ? $location : false;
 
 ////////////////////////////////////////////////////////// ?>
 
 <?php if($page->isHomePage()): ?>
-	<?php if($loc == 'header'): ?>
+	<?php if($location == 'header'): ?>
 		<nav role="navigation" class="nav-main compact-aligner__item--right">
 			<h2 class="is-hidden-visually">Main navigation</h2>
 			<ul class="nav-main__list aligner aligner--wrap aligner--center">
 	<?php else: ?>
-		<?php if($loc == 'footer'): ?>
+		<?php if($location == 'footer'): ?>
 			<div class="nav-main contain-padding">
 				<ul class="nav-main__list aligner aligner--wrap">
 		<?php else: ?>
@@ -22,11 +23,11 @@ $loc = isset($loc) ? $loc : false;
 		<?php endif; ?>
 	<?php endif; ?>
 <?php else: ?>
-	<?php if($loc == 'header'): ?>
+	<?php if($location == 'header'): ?>
 		<div class="nav-main compact-aligner__item--right">
 			<ul class="nav-main__list aligner aligner--wrap aligner--center">
 	<?php else: ?>
-		<?php if($loc == 'footer'): ?>
+		<?php if($location == 'footer'): ?>
 			<nav role="navigation" class="nav-main contain-padding">
 				<h2 class="is-hidden-visually">Main navigation</h2>
 				<ul class="nav-main__list aligner aligner--wrap">
@@ -37,8 +38,8 @@ $loc = isset($loc) ? $loc : false;
 	<?php endif; ?>
 <?php endif; ?>
 
-		<?php if($loc == 'footer'): ?>
-			<li class="nav-main__item"<?php echo (page() == 'home' && !str::contains(kirby()->request()->path(), 'tag') && !str::contains(kirby()->request()->path(), 'work')) ? ' aria-current="page"' : ''; ?>><a rel="home" href="<?php echo $site->url(); ?>">Home</a></li>
+		<?php if($location == 'footer'): ?>
+			<li class="nav-main__item"<?php echo (page() == 'home' && !str::contains(kirby()->request()->path(), 'tag') && !str::contains(kirby()->request()->path(), 'werk')) ? ' aria-current="page"' : ''; ?>><a rel="home" href="<?php echo $site->url(); ?>">Home</a></li>
 		<?php endif; ?>
 
 		<?php foreach($pages->visible()->not() as $page_item): ?>
@@ -50,7 +51,7 @@ $loc = isset($loc) ? $loc : false;
 			<?php endif; ?>
 		<?php endforeach; ?>
 
-<?php if(($page->isHomePage() && $loc == 'header') || (!$page->isHomePage() && $loc == 'footer')): ?>
+<?php if(($page->isHomePage() && $location == 'header') || (!$page->isHomePage() && $location == 'footer')): ?>
 		</ul>
 	</nav>
 <?php else: ?>

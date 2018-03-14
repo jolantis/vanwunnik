@@ -21,7 +21,7 @@
 	<?php /*
 	<div role="contentinfo" class="contentinfo">
 
-		<?php // snippet('nav-main', array('loc' => 'footer')); ?>
+		<?php // snippet('nav-main', array('location' => 'footer')); ?>
 
 		<footer class="medium-aligner contain-padding">
 			<p>&copy; <?php echo '2007&ndash;' . date("Y"); ?> <a href="https://vanwunnik.com" rel="me"><?php echo $site->copyright()->smartypants(); ?></a></p>
