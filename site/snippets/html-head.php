@@ -8,7 +8,7 @@
 $env_suffix = (c::get('environment', '.min') == 'local') ? '' : '.min';
 
 // Variabel to set language locale on html element
-$language_locale = (c::get('language.multi', false)) ? $site->language()->locale() : c::get('language.locale', 'en');
+$language_locale = (c::get('language.multi', false)) ? site()->language()->locale() : c::get('language.locale', 'en');
 
 // Variable to set page template name to html element for styling purpose.
 $page_template = ($page->intendedTemplate()) ? ' template-' . $page->intendedTemplate() : '';
@@ -30,26 +30,26 @@ $fontobserver = (isset($_COOKIE['fonts_loaded']) && $_COOKIE['fonts_loaded'] == 
 	<?php /* <link rel="dns-prefetch" href="https://maps.googleapis.com"> */ ?>
 	<link rel="dns-prefetch" href="https://www.google-analytics.com">
 
-	<link rel="preload" href="<?php echo $site->url(); ?>/assets/fonts/rosario/rosario-regular.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="<?php echo $site->url(); ?>/assets/fonts/rosario/rosario-italic.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="<?php echo $site->url(); ?>/assets/fonts/rosario/rosario-bold.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="<?php echo $site->url(); ?>/assets/fonts/rosario/rosario-bold-italic.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo site()->url(); ?>/assets/fonts/rosario/rosario-regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo site()->url(); ?>/assets/fonts/rosario/rosario-italic.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo site()->url(); ?>/assets/fonts/rosario/rosario-bold.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo site()->url(); ?>/assets/fonts/rosario/rosario-bold-italic.woff2" as="font" type="font/woff2" crossorigin>
 
 	<title><?php echo $page->window_title(); if(c::get('environment') == 'local'): echo ' [DEV]'; endif; ?></title>
 	<meta name="description" content="<?php echo $page->meta_description(); ?>">
 
 	<meta name="robots" content="<?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo 'noindex, nofollow'; else: echo 'index, follow'; endif; ?>">
 
-	<link rel="home" href="<?php echo $site->url(); ?>">
+	<link rel="home" href="<?php echo site()->url(); ?>">
 	<?php if(c::get('tinyurl.enabled') && !$page->isHomepage()): ?><link rel="shortlink" href="<?php echo $page->tinyurl(); ?>"><?php endif; ?><?php // Enable shortlink/tinyurl in config.php ?>
-	<link rel="author" href="<?php echo $site->url(); ?>/humans.txt">
-	<link rel="sitemap" type="application/xml" title="<?php echo $site->title()->smartypants(); ?>: Sitemap" href="<?php echo (c::get('url') != '/') ? $site->url() . '/sitemap.xml' :  '/sitemap.xml'; ?>">
-	<link rel="alternate" type="application/rss+xml" title="<?php echo $site->title()->smartypants(); ?>: <?php echo page('journal')->title()->smartypants(); ?> Feed" href="<?php echo (c::get('url') != '/') ? $site->url() . '/journal.rss' : '/journal.rss'; ?>">
-	<link rel="alternate" type="application/rss+xml" title="<?php echo $site->title()->smartypants(); ?>: <?php echo page('work')->title()->smartypants(); ?> Feed" href="<?php echo (c::get('url') != '/') ? $site->url() . '/work.rss' : '/work.rss'; ?>">
+	<link rel="author" href="<?php echo site()->url(); ?>/humans.txt">
+	<link rel="sitemap" type="application/xml" title="<?php echo site()->title()->smartypants(); ?>: Sitemap" href="<?php echo (c::get('url') != '/') ? site()->url() . '/sitemap.xml' :  '/sitemap.xml'; ?>">
+	<link rel="alternate" type="application/rss+xml" title="<?php echo site()->title()->smartypants(); ?>: <?php echo page('dagboek')->title()->smartypants(); ?> Feed" href="<?php echo (c::get('url') != '/') ? site()->url() . '/journal.rss' : '/journal.rss'; ?>">
+	<link rel="alternate" type="application/rss+xml" title="<?php echo site()->title()->smartypants(); ?>: <?php echo page('werk')->title()->smartypants(); ?> Feed" href="<?php echo (c::get('url') != '/') ? site()->url() . '/work.rss' : '/work.rss'; ?>">
 
 	<link rel="apple-touch-icon" href="<?php echo url('/assets/images/apple-touch-icon.png'); ?>"><?php // Touch icons, iOS and Android, 180x180 pixels in size (http://j.mp/2fnrQmw, http://j.mp/2gpJVVF) ?>
 	<link rel="icon" href="<?php echo url('/assets/images/favicon.png'); ?>"><?php // For Firefox, Chrome, Safari, IE 11+ and Opera, 192x192 pixels in size ?>
-	<link rel="mask-icon" href="<?php echo url('/assets/images/pinned-icon.svg'); ?>" color="<?php echo ($site->theme_color()->isNotEmpty()) ? $site->theme_color() : '#141414' ; ?>"><?php // For Safari 9+ pinned tab (http://j.mp/2gpNiw9) ?>
+	<link rel="mask-icon" href="<?php echo url('/assets/images/pinned-icon.svg'); ?>" color="<?php echo (site()->theme_color()->isNotEmpty()) ? site()->theme_color() : '#141414' ; ?>"><?php // For Safari 9+ pinned tab (http://j.mp/2gpNiw9) ?>
 
 	<link rel="canonical" href="<?php echo $page->rel_canonical($filter_value, $page_num); ?>">
 	<?php echo $page->rel_prevnext($filter_key, $filter_value, $pagination, $page_num); ?>

@@ -16,5 +16,5 @@ $date_format = (isset($format)) ? $format : '%G-%m-%d';
 <?php if($page->date($format=true)): ?>
 	<time datetime="<?php echo $page->date('c'); ?>" pubdate="Pubdate"><?php echo $date = (isset($relative) && $relative == true) ? relativeDate($page->date($date_format)) : $page->date($date_format); ?></time>
 <?php else: ?>
-	No (correct) date field defined in content file!
+	<?php echo l::get('no date'); ?>
 <?php endif; ?>

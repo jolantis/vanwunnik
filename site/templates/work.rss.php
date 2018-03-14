@@ -5,8 +5,8 @@
 /////////////////////////////////////////////////////////////
 
 // echo page('blog')->children()->visible()->flip()->limit(20)->feed(array(
-echo page('work')->children()->visible()->flip()->feed(array(
-	'channel'       => 'work',
+echo page('werk')->children()->visible()->flip()->feed(array(
+	'channel'       => 'werk',
 	'textfield'     => 'year',
 	'image'         => true,                                                    // Include image (after excerpt); first available image in folder is used (set to false when images are included in 'kirbytext' field, and excerpt is set to false, to prevent duplicate images!)
 	'excerpt'       => false,

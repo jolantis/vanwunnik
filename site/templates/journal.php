@@ -27,7 +27,7 @@
 						<span class="bg-text aligner aligner--stacked aligner--bottom">
 							<h2 class="bg-text__title"><?php echo $page_item->title()->smartypants()->widont(); ?></h2>
 							<?php /* <p class="bg-text__meta"><?php snippet('datetime', ['relative' => true, 'page' => $page_item]); ?> &nbsp;&mdash;&nbsp; <?php echo $page_item->images()->count(); ?> photos</p> */ ?>
-							<p class="bg-text__meta">Posted <?php snippet('datetime', ['relative' => true, 'page' => $page_item]); ?></p>
+							<p class="bg-text__meta"><?php echo l::get('posted'); snippet('datetime', ['relative' => true, 'page' => $page_item]); ?></p>
 						</span>
 					</a>
 				</article>

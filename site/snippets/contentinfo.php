@@ -15,10 +15,10 @@
 			// $formatter = new NumberFormatter("en", NumberFormatter::SPELLOUT);
 			// $formatter->format($years)
 		?>
-		<?php echo kirbytext($years . ' years I ask myself the question ‘what is the mystery of nature’---while painting.'); ?>
+		<?php echo kirbytext($years . ' ' . l::get('mystery of nature')); ?>
 	</div>
 
-	<?php snippet('nav-main', array('loc' => 'footer')); ?>
+	<?php snippet('nav-main', array('location' => 'footer')); ?>
 
 	<footer class="medium-aligner contain-padding">
 		<p>&copy; <?php echo '2007&ndash;' . date("Y"); ?> <a href="https://vanwunnik.com" rel="me"><?php echo $site->copyright()->smartypants(); ?></a></p>
