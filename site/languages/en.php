@@ -1,24 +1,29 @@
 <?php
 
 // Default
-
 l::set('submit', 'Submit');
 l::set('cancel', 'Cancel');
 
-// Calendar plugin
-// For `strftime` parameters, see http://php.net/manual/en/function.strftime.php
-
-l::set('calendar-time-format', '%d');
-l::set('calendar-full-time-format', '%d %X');
-l::set('calendar-month-format', '%b %Y');
-l::set('calendar-day-month-format', '%e %b');
-l::set('calendar-day-month-year-format', '%e %b %Y');
-l::set('calendar-no-entry', 'There are currenly no upcoming events&hellip;');
-
-l::set('date', 'Date');
-l::set('to', 'to');
-
 l::set('title', 'Title');
 l::set('description', 'Description');
+
+// Pagination
+l::set('next', 'Next page');
+l::set('prev', 'Previous page');
+l::set('page', 'page');
+
+// Journal
+l::set('posted', 'Posted');
+l::set('posted in', 'Posted in journal');
+l::set('posted on', 'Posted on');
+l::set('on', 'on');
+l::set('recent posts', 'Recent journal posts');
+l::set('more posts', 'More journal posts');
+
+// Time & Dates
+l::set('no date', 'No (correct) date field defined in content file!');
+
+// Contentinfo
+l::set('mystery of nature', 'years I ask myself the question (quote: what is the mystery of nature)---while painting.');
 
 ?>
