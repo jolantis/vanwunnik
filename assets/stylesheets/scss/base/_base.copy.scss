@@ -231,7 +231,10 @@
 	> time,
 	> table,
 	figcaption p {
-		hyphens: auto;
+
+		.en & {
+			hyphens: auto;
+		}
 	}
 
 	/**
