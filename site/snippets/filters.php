@@ -31,12 +31,12 @@ if($sort == 'abc') {
 
 <?php if($filter_values): ?>
 <div class="filters aligner">
-	<h2 class="is-hidden-visually">Filter work</h2>
+	<h2 class="is-hidden-visually"><?php echo l::get('filter work'); ?></h2>
 	<ul class="filterslist aligner js-filters">
 		<?php if($filter_value): ?>
 			<li class="filterslist__item">
-				<a href="<?php echo $page->url(); ?>" class="button button--simple icon button--lowercase icon--right is-active" title="Remove filter: &lsquo;<?php echo tagunslug($filter_value); ?>&rsquo;">
-					<span class="is-hidden-visually">Remove filter: </span>
+				<a href="<?php echo $page->url(); ?>" class="button button--simple icon icon--right is-active" title="<?php echo l::get('remove filter'); ?>: &lsquo;<?php echo tagunslug($filter_value); ?>&rsquo;">
+					<span class="is-hidden-visually"><?php echo l::get('remove filter'); ?>: </span>
 					<?php echo tagunslug($filter_value); ?>
 					<svg role="presentation">
 						<title><?php echo l::get('cross title'); ?></title>
@@ -53,7 +53,7 @@ if($sort == 'abc') {
 
 			<?php if(!$filter_value || $filter_value != tagslug($filter_item)): ?>
 				<li class="filterslist__item">
-					<a href="<?php echo url($page->url() . '/' . (($filter_key == 'tags') ? 'tag' : $filter_key) . '/' . tagslug($filter_item)) ?>" class="button button--simple button--lowercase" title="Add filter: &lsquo;<?php echo html($filter_item); ?>&rsquo;"><?php echo html($filter_item . ' <small class="filterslist__item-count">' . $page_items_count . '</small>'); ?></a>
+					<a href="<?php echo url($page->url() . '/' . (($filter_key == 'tags') ? 'tag' : $filter_key) . '/' . tagslug($filter_item)) ?>" class="button button--simple" title="Add filter: &lsquo;<?php echo html($filter_item); ?>&rsquo;"><?php echo html($filter_item . ' <small class="filterslist__item-count">' . $page_items_count . '</small>'); ?></a>
 				</li>
 			<?php endif; ?>
 

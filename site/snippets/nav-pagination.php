@@ -6,7 +6,7 @@
 
 <?php if($pagination && $pagination->hasPages()): ?>
 	<nav role="navigation" class="contain-padding">
-		<h2 class="is-hidden-visually">Page navigation</h2>
+		<h2 class="is-hidden-visually"><?php echo l::get('page navigation'); ?></h2>
 		<ul class="pagination aligner aligner--wrap">
 			<?php if($pagination->hasPrevPage()): ?>
 				<li class="pagination__item pagination__item--newer">

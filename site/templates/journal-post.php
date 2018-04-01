@@ -9,11 +9,11 @@
 		<main role="main" class="hero bg-image bg-image--cover">
 			<?php echo $main_image->imageset('hero', ['output' => 'bgimage']); ?>
 			<span class="hero__text aligner aligner--stacked aligner--center">
-				<h1 class="hero__title">Not translated!</h1>
+				<h1 class="hero__title">Not yet translated</h1>
 				<span class="hero__subtitle">
 					Please return when &lsquo;<a href="<?php echo $page->url(); ?>"><?php echo $page->title()->smartypants()->widont(); ?></a>&rsquo; is translated.
 				</span>
-				<span class="hero__buttons aligner aligner--center">
+				<span class="hero__button aligner aligner--center">
 					<a href="<?php echo $page->url(); ?>" class="hero__button button button--border-light icon icon--right">
 						Return to Dutch version
 						<svg role="presentation" width="24" height="24" title="Right arrow">
@@ -68,7 +68,7 @@
 				<?php if($page->tags()->isNotEmpty()): ?>
 					Posted in
 					<?php $i = 1; foreach($tags = str::split($page->tags(),',') as $tag): ?>
-						<a href="<?php echo $page->parent()->url() . '/tags/' . tagslug($tag); ?>" class="link link--no-history link--lowercase"><?php echo $tag; ?></a>
+						<a href="<?php echo $page->parent()->url() . '/tags/' . tagslug($tag); ?>" class="link link--no-history"><?php echo $tag; ?></a>
 						<?php
 							if($i == (count($tags) - 1)):
 								echo ' and ';
@@ -117,12 +117,13 @@
 
 		</main>
 
+		<?php /*
 		<div class="contain-padding space-leader-m">
 			<?php if($filter_value): ?>
 				<?php $blog_posts_count = $page->parent()->children()->visible()->filterBy($filter_key, '==', tagunslug($filter_value), ',')->count(); // Associated number count of blog posts for the current filter value ?>
 				<p>
-					<a href="<?php echo $page->parent()->url(); ?>" class="button button--simple icon icon--right is-active" title="Remove filter: &lsquo;<?php echo tagunslug($filter_value); ?>&rsquo;">
-						<span class="is-hidden-visually">Remove filter: </span>
+					<a href="<?php echo $page->parent()->url(); ?>" class="button button--simple icon icon--right is-active" title="<?php echo l::get('remove filter'); ?>: &lsquo;<?php echo tagunslug($filter_value); ?>&rsquo;">
+						<span class="is-hidden-visually"><?php echo l::get('remove filter'); ?>: </span>
 						<?php echo tagunslug($filter_value); ?>
 						<svg role="presentation" title="Cross">
 							<use xlink:href="/assets/images/sprite.svg#cross"/>
@@ -132,6 +133,7 @@
 				</p>
 			<?php endif; ?>
 		</div>
+		*/ ?>
 
 		<?php snippet('nav-prevnext'); ?>
 

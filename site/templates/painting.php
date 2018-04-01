@@ -36,19 +36,19 @@
 
 			<?php if($page->material_and_technique()->isNotEmpty()): ?>
 				<p class="text-no-intro">
-					<span>Material &amp; Technique: </span>
+					<span><?php echo l::get('material and technique'); ?>: </span>
 					<?php echo $page->material_and_technique()->smartypants(); ?>
 				</p>
 			<?php endif; ?>
 			<?php if($page->measurements()->isNotEmpty()): ?>
 				<p>
-					<span>Measurements: </span>
+					<span><?php echo l::get('measurements'); ?>: </span>
 					<?php echo $page->measurements(); ?>
 				</p>
 			<?php endif; ?>
 			<?php if($page->year()->isNotEmpty()): ?>
 				<p>
-					<span>Year: </span>
+					<span><?php echo l::get('year of painting'); ?>: </span>
 					<?php echo $page->year(); ?>
 				</p>
 			<?php endif; ?>

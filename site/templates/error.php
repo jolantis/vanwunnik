@@ -18,7 +18,7 @@
 			<?php if($page->hero_subtitle()->isNotEmpty()): ?>
 				<span class="hero__subtitle"><?php echo $page->hero_subtitle()->smartypants(); ?></span>
 			<?php endif; ?>
-			<span class="hero__buttons aligner aligner--center">
+			<span class="hero__button aligner aligner--center">
 				<a href="<?php echo $site->find('home')->url(); ?>" class="button button--border-light icon icon--right">
 					Go to homepage
 					<svg role="presentation" width="24" height="24" title="Right arrow">

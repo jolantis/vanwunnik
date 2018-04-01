@@ -12,11 +12,11 @@
 				<?php echo $work_image->imageset('hero', ['output' => 'bgimage']); ?>
 				<span class="hero__text aligner aligner--stacked aligner--center">
 					<span class="hero__title"><?php echo $page->hero_title()->smartypants(); ?></span>
-					<?php if($page->hero_subtitle()->isNotEmpty()): ?>
-						<p class="hero__subtitle"><?php echo $page->hero_subtitle()->smartypants(); ?></p>
+					<?php if($page->hero_subtitle()->exists() && $page->hero_subtitle()->isNotEmpty()): ?>
+						<span class="hero__subtitle"><?php echo $page->hero_subtitle()->smartypants(); ?></span>
 					<?php endif; ?>
 					<a href="<?php echo $work->url(); ?>" class="hero__button button button--border-light icon icon--right">
-						View work
+						<?php echo l::get('view work'); ?>
 						<svg role="presentation" width="24" height="24" title="Right arrow">
 							<use xlink:href="/assets/images/sprite.svg#arrow-right"/>
 						</svg>

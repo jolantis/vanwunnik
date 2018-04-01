@@ -18,16 +18,4 @@
 
 	<?php snippet('contentinfo'); ?>
 
-	<?php /*
-	<div role="contentinfo" class="contentinfo">
-
-		<?php // snippet('nav-main', array('location' => 'footer')); ?>
-
-		<footer class="medium-aligner contain-padding">
-			<p>&copy; <?php echo '2007&ndash;' . date("Y"); ?> <a href="https://vanwunnik.com" rel="me"><?php echo $site->copyright()->smartypants(); ?></a></p>
-			<p class="medium-aligner__item--right">All contents licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" title="Creative Commons Attribution-Non-Commercial-No-Derivs 4.0 International">CC BY-NC-ND license</a></p>
-		</footer>
-	</div>
-	*/ ?>
-
 <?php snippet('html-foot'); ?>

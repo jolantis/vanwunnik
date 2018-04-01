@@ -18,10 +18,17 @@
 		<?php echo kirbytext($years . ' ' . l::get('mystery of nature')); ?>
 	</div>
 
-	<?php snippet('nav-main', array('location' => 'footer')); ?>
+	<div class="contain-padding">
+		<?php snippet('nav-main', array('location' => 'footer')); ?>
+		<?php snippet('language-toggle', array('location' => 'footer')); ?>
+	</div>
 
-	<footer class="medium-aligner contain-padding">
-		<p>&copy; <?php echo '2007&ndash;' . date("Y"); ?> <a href="https://vanwunnik.com" rel="me"><?php echo $site->copyright()->smartypants(); ?></a></p>
-		<p class="medium-aligner__item--right">All contents licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" title="Creative Commons Attribution-Non-Commercial-No-Derivs 4.0 International">CC BY-NC-ND license</a></p>
+	<footer class="contain-padding">
+		<p><?php echo '2007&ndash;' . date("Y"); ?> <a href="https://vanwunnik.com" rel="me"><?php echo $site->copyright()->smartypants(); ?></a></p>
+		<?php if(site()->language()->code() == 'nl'): ?>
+			<p>Alle werken vallen onder een <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.nl" title="Creative Commons Naamsvermelding-NietCommercieel-GeenAfgeleideWerken 4.0 Internationaal">CC BY-NC-ND licentie</a></p>
+		<?php else: ?>
+			<p>All contents licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="Creative Commons Attribution-Non-Commercial-No-Derivs 4.0 International">CC BY-NC-ND license</a></p>
+		<?php endif; ?>
 	</footer>
 </div>

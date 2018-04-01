@@ -13,8 +13,8 @@
 
 		<section class="grid grid--gutter">
 			<h2 class="is-hidden-visually">
-				Journal posts
-				<?php echo ($filter_value) ? '(tagged with: ' . tagunslug($filter_value) . ')' : ''; ?>
+				<?php echo l::get('journal posts'); ?>
+				<?php // echo ($filter_value) ? '(tagged with: ' . tagunslug($filter_value) . ')' : ''; ?>
 			</h2>
 			<?php foreach ($page_items as $page_item) : ?>
 

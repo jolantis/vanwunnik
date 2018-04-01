@@ -14,8 +14,8 @@
 
 		<section class="grid grid--gutter grid--align-bottom">
 			<h2 class="is-hidden-visually">
-				Work
-				<?php echo ($filter_value) ? '(tagged with: ' . tagunslug($filter_value) . ')' : ''; ?>
+				<?php echo l::get('work'); ?>
+				<?php echo ($filter_value) ? '(&lsquo;' . tagunslug($filter_value) . '&rsquo; ' . l::get('tagged with') . ')' : ''; ?>
 			</h2>
 			<?php foreach ($page_items as $page_item) : ?>
 
@@ -44,19 +44,19 @@
 							<h3 class="epsilon-heading1"><?php echo $page_item->title()->smartypants(); ?></h3>
 							<?php if($page_item->material_and_technique()->isNotEmpty()): ?>
 								<p class="text-small">
-									<span class="is-hidden-visually">Material &amp; Technique: </span>
+									<span class="is-hidden-visually"><?php echo l::get('material and technique'); ?>: </span>
 									<?php echo $page_item->material_and_technique()->smartypants(); ?>
 								</p>
 							<?php endif; ?>
 							<?php if($page_item->measurements()->isNotEmpty()): ?>
 								<p class="text-small">
-									<span class="is-hidden-visually">Measurements: </span>
+									<span class="is-hidden-visually"><?php echo l::get('measurements'); ?>: </span>
 									<?php echo $page_item->measurements()->html(); ?>
 								</p>
 							<?php endif; ?>
 							<?php if($page_item->year()->isNotEmpty()): ?>
 								<p class="text-small">
-									<span class="is-hidden-visually">Measurements: </span>
+									<span class="is-hidden-visually"><?php echo l::get('year of painting'); ?>: </span>
 									<?php echo $page_item->year()->html(); ?>
 								</p>
 							<?php endif; ?>
@@ -81,18 +81,22 @@
 		*/ ?>
 		<div class="overlay__close">
 			<?php if($filter_value): ?>
-				<a href="<?php echo url($page->url() . '/' . (($filter_key == 'tags') ? 'tag' : $filter_key) . '/' . tagslug($filter_value) . (($page_num > 1) ? '/page/' . $page_num : '')); ?>" class="button button--simple icon js-overlay-close">
-					<svg role="presentation" title="Cross">
+				<a href="<?php echo url($page->url() . '/' . (($filter_key == 'tags') ? 'tag' : $filter_key) . '/' . tagslug($filter_value) . (($page_num > 1) ? '/page/' . $page_num : '')); ?>" aria-label="<?php echo l::get('close overlay'); ?>" class="button button--simple icon js-overlay-close">
+					<svg role="presentation">
+						<title><?php echo l::get('cross title'); ?></title>
+						<desc><?php echo l::get('cross desc'); ?></desc>
 						<use xlink:href="/assets/images/sprite.svg#cross"/>
 					</svg>
-					<span class="is-hidden-visually">Close</span>
+					<span class="is-hidden-visually"><?php echo l::get('close'); ?></span>
 				</a>
 			<?php else: ?>
-				<a href="<?php echo $page->url() . (($page_num > 1) ? '/page/' . $page_num : ''); ?>" class="button button--simple icon icon--big js-overlay-close">
-					<svg role="presentation" title="Cross">
+				<a href="<?php echo $page->url() . (($page_num > 1) ? '/page/' . $page_num : ''); ?>" aria-label="<?php echo l::get('close overlay'); ?>" class="button button--simple icon icon--big js-overlay-close">
+					<svg role="presentation">
+						<title><?php echo l::get('cross title'); ?></title>
+						<desc><?php echo l::get('cross desc'); ?></desc>
 						<use xlink:href="/assets/images/sprite.svg#cross"/>
 					</svg>
-					<span class="is-hidden-visually">Close</span>
+					<span class="is-hidden-visually"><?php echo l::get('close'); ?></span>
 				</a>
 			<?php endif; ?>
 		</div>
