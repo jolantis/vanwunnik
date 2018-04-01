@@ -12,7 +12,9 @@
 			<?php if($next): ?>
 				<li class="pagination__item pagination__item--newer">
 					<a href="<?php echo $next->url(); ?>" class="button button--border-dark icon icon--left">
-						<svg role="presentation" width="24" height="24" title="Left arrow">
+						<svg role="presentation" width="24" height="24">
+							<title><?php echo l::get('left arrow title'); ?></title>
+							<desc><?php echo l::get('left arrow desc'); ?></desc>
 							<use xlink:href="/assets/images/sprite.svg#arrow-left"/>
 						</svg>
 						<?php echo $next->title()->smartypants(); ?>
@@ -24,7 +26,9 @@
 				<li class="pagination__item pagination__item--older aligner__item--right">
 					<a href="<?php echo $prev->url(); ?>" class="button button--border-dark icon icon--right">
 						<?php echo $prev->title()->smartypants(); ?>
-						<svg role="presentation" width="24" height="24" title="Right arrow">
+						<svg role="presentation" width="24" height="24">
+							<title><?php echo l::get('right arrow title'); ?></title>
+							<desc><?php echo l::get('right arrow desc'); ?></desc>
 							<use xlink:href="/assets/images/sprite.svg#arrow-right"/>
 						</svg>
 					</a>

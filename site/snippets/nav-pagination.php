@@ -15,7 +15,9 @@
 					<?php else: ?>
 						<a href="<?php echo url(((site()->language()->code() != site()->defaultLanguage()->code()) ? site()->language()->code() . '/' : '') . page()->slug() . (($filter_value) ? '/' . (($filter_key == 'tags') ? 'tag' : $filter_key) . '/' . $filter_value : '') . '/' . l::get('page') . '/' . ($page_num - 1)); ?>" class="button button--border-dark icon icon--left">
 					<?php endif; ?>
-							<svg role="presentation" width="24" height="24" title="Left arrow">
+							<svg role="presentation" width="24" height="24">
+								<title><?php echo l::get('left arrow title'); ?></title>
+								<desc><?php echo l::get('left arrow desc'); ?></desc>
 								<use xlink:href="/assets/images/sprite.svg#arrow-left"/>
 							</svg>
 							<?php echo smartypants(l::get('prev')); ?>
@@ -27,7 +29,9 @@
 				<li class="pagination__item pagination__item--older aligner__item--right">
 					<a href="<?php echo url(((site()->language()->code() != site()->defaultLanguage()->code()) ? site()->language()->code() . '/' : '') . page()->slug() . (($filter_value) ? '/' . (($filter_key == 'tags') ? 'tag' : $filter_key) . '/' . $filter_value : '') . '/' . l::get('page') . '/' . ($page_num + 1)); ?>" class="button button--border-dark icon icon--right">
 						<?php echo smartypants(l::get('next')); ?>
-						<svg role="presentation" width="24" height="24" title="Right arrow">
+						<svg role="presentation" width="24" height="24">
+							<title><?php echo l::get('right arrow title'); ?></title>
+							<desc><?php echo l::get('right arrow desc'); ?></desc>
 							<use xlink:href="/assets/images/sprite.svg#arrow-right"/>
 						</svg>
 					</a>

@@ -38,7 +38,9 @@ if($sort == 'abc') {
 				<a href="<?php echo $page->url(); ?>" class="button button--simple icon button--lowercase icon--right is-active" title="Remove filter: &lsquo;<?php echo tagunslug($filter_value); ?>&rsquo;">
 					<span class="is-hidden-visually">Remove filter: </span>
 					<?php echo tagunslug($filter_value); ?>
-					<svg role="presentation" title="Cross">
+					<svg role="presentation">
+						<title><?php echo l::get('cross title'); ?></title>
+						<desc><?php echo l::get('cross desc'); ?></desc>
 						<use xlink:href="/assets/images/sprite.svg#cross"/>
 					</svg>
 				</a>
