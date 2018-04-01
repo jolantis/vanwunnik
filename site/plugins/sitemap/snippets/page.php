@@ -4,7 +4,9 @@
 
     <?php if ($languages && $languages->count() > 1) : ?>
     <?php foreach ($languages as $lang) : ?>
+	<?php if (isset($page->inventory()['content'][$lang->code()])) : ?>
     <xhtml:link hreflang="<?= $lang->code() ?>" href="<?= html($page->url($lang->code())) ?>" rel="alternate" />
+	<?php endif ?>
     <?php endforeach ?>
     <?php endif ?>
 

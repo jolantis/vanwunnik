@@ -20,7 +20,7 @@ kirby()->set('route', [
     'pattern' => 'sitemap.xsl',
     'method'  => 'GET',
     'action'  => function() {
-        $stylesheet = f::read(__DIR__ . DS . 'xml-sitemap.xsl');
+        $stylesheet = f::read(__DIR__ . DS . 'sitemap.xsl');
 
         return new response($stylesheet, 'xsl');
     }
@@ -70,7 +70,7 @@ kirby()->set('route', [
             throw new Exception($process . ' is not callable.');
         }
 
-        $template = __DIR__ . DS . 'xml-sitemap.html.php';
+        $template = __DIR__ . DS . 'sitemap.html.php';
         $sitemap  = tpl::load($template, compact('languages', 'pages'));
 
         cache::set('sitemap', $sitemap);
