@@ -46,6 +46,12 @@
 	margin-bottom: rhythm(.25);
 }
 
+.hero__subtitle {
+	@extend %heading-settings;
+	@extend %text-kern;
+	@include responsive-text-size($text-bg-title);
+}
+
 .hero__title,
 .hero__subtitle,
 .hero__meta {
