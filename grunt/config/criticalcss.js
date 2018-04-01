@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 		},
 		work : {
 			options: {
-				url: 'http://vanwunnik.test/work',
+				url: 'http://vanwunnik.test/werk',
 				width: 1440,
 				height: 900,
 				outputfile: '<%= project.styles_critical %>/work.css',
@@ -69,10 +69,10 @@ module.exports = function(grunt) {
 		// },
 		blog : {
 			options: {
-				url: 'http://vanwunnik.test/journal',
+				url: 'http://vanwunnik.test/dagboek',
 				width: 1440,
 				height: 900,
-				outputfile: '<%= project.styles_critical %>/blog.css',
+				outputfile: '<%= project.styles_critical %>/journal.css',
 				filename: '<%= project.styles %>/main.css',
 				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
 				buffer: 800*1024,
@@ -80,10 +80,10 @@ module.exports = function(grunt) {
 		},
 		blog_post : {
 			options: {
-				url: 'http://vanwunnik.test/journal/poems-and-paintings',
+				url: 'http://vanwunnik.test/dagboek/poezie-als-beeldtaal',
 				width: 1440,
 				height: 900,
-				outputfile: '<%= project.styles_critical %>/blog_post.css',
+				outputfile: '<%= project.styles_critical %>/journal_post.css',
 				filename: '<%= project.styles %>/main.css',
 				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
 				buffer: 800*1024,
