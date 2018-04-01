@@ -57,7 +57,7 @@
 // 	@extend %text-small;
 // }
 
-.hero__buttons {
+.hero__button {
 	pointer-events: auto;
 
 	.hero__subtitle + & {
@@ -65,7 +65,7 @@
 	}
 }
 
-.hero__buttons > a + a {
+.hero__button > a + a {
 	margin-left: rhythm(1);
 }
 
