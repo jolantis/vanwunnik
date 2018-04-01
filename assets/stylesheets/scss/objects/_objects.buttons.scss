@@ -92,13 +92,17 @@
 	 */
 
 	&--simple {
-		background-color: $color-aqua-m-light;//$color-gray-x-light;
+		// background-color: $color-aqua-m-light;//$color-gray-x-light;
+		background-color: rgba($color-base-aqua,.1);
+		color: $color-aqua-dark;
 
 		&:hover,
 		&:active,
 		&.is-active {
-			background-color: $color-base-aqua;
-			color: $color-link-light;
+			// background-color: $color-base-aqua;
+			// color: $color-link-light;
+			background-color: rgba($color-base-aqua,.3);
+			color: $color-link-dark;
 		}
 	}
 
@@ -139,13 +143,13 @@
 		// }
 	}
 
-	/**
-	 * Text modifier
-	 */
+	// /**
+	//  * Text modifier
+	//  */
 
-	&--lowercase {
-		text-transform: lowercase;
-	}
+	// &--lowercase {
+	// 	text-transform: lowercase;
+	// }
 
 	/**
 	 * Size modifiers

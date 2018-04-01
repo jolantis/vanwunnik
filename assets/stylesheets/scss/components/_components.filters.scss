@@ -102,7 +102,7 @@
 	white-space: nowrap;
 
 	a {
-		color: $color-aqua-dark;
+		// color: $color-aqua-dark; // Color is defined by button (`button--simple`)!
 		margin-right: rhythm(.05);
 		margin-bottom: rhythm(.05);
 	}
