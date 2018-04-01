@@ -1,0 +1,65 @@
+/* ==========================================================================
+	 Nav
+	 ========================================================================== */
+
+/* Nav main */
+
+.nav-main {
+	overflow: hidden;
+
+	&__list {
+		margin-left: rhythm(-.3);
+		margin-right: rhythm(-.3);
+
+		@include breakpoint(medium) {
+			margin-left: rhythm(-.5);
+			margin-right: rhythm(-.5);
+		}
+	}
+
+	&__item {
+
+		a {
+			display: block;
+			padding-top: rhythm(.5);
+			padding-right: rhythm(.3);
+			padding-bottom: rhythm(.5);
+			padding-left: rhythm(.3);
+			color: $color-base-aqua;
+
+			@include breakpoint(medium) {
+				padding-top: rhythm(.5);
+				padding-right: rhythm(.5);
+				padding-bottom: rhythm(.5);
+				padding-left: rhythm(.5);
+			}
+
+			&:hover,
+			&:focus {
+				color: $color-link-dark;
+			}
+
+			&[aria-current="page"] {
+				color: $color-link-dark;
+			}
+
+			header & {
+
+				.template-home &,
+				.template-journal-post &,
+				.template-error & {
+					color: rgba($color-link-light,.7);
+
+					&:hover,
+					&:focus {
+						color: $color-link-light;
+					}
+
+					&[aria-current="page"] {
+						color: $color-link-light;
+					}
+				}
+			}
+		}
+	}
+}

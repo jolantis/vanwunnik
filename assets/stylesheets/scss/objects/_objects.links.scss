@@ -12,7 +12,8 @@
 
 		position: relative;
 		// background-color: transparent; // Remove the gray background on active links in IE 10.
-		background-color: $color-aqua-m-light;//$color-gray-x-light;
+		// background-color: $color-aqua-m-light;//$color-gray-x-light;
+		background-color: rgba($color-base-aqua,.1);
 		// text-decoration: underline;
 		// text-decoration-skip: ink; // See: https://css-tricks.com/more-control-over-text-decoration/
 		// color: $color-blue-dark;
@@ -36,10 +37,9 @@
 		background-color: transparent;
 
 		.no-touchevents & {
-			// top: -2px;
-			// border-bottom: 2px solid $color-link-dark;
-			background-color: $color-base-aqua;
-			color: $color-link-light;
+			// background-color: $color-base-aqua;
+			background-color: rgba($color-base-aqua,.3);
+			// color: $color-link-light;
 		}
 	}
 	&:active {

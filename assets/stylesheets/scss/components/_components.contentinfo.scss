@@ -3,16 +3,59 @@
    ========================================================================== */
 
 .contentinfo {
-	margin-top: rhythm(3);
+	margin-top: rhythm(3.5);
+	padding-top: rhythm(1.5);
 	// text-align: center;
+	background-color: rgba($color-base-aqua,.1);
+	// color: $color-base-aqua;
 
-	.copy > p {
-		// max-width: strip-unit($text-max-width) + (2 * strip-unit(rhythm($contain-rhythm-unit))) * 1rem; // In REM's; *not* relative to (bigger) text size!
-		max-width: 100%;
+	// div:first-child  {
+
+	// 	> p {
+	// 		// max-width: strip-unit($text-max-width) + (2 * strip-unit(rhythm($contain-rhythm-unit))) * 1rem; // In REM's; *not* relative to (bigger) text size!
+	// 		max-width: 100%;
+	// 		// color: $color-base-black;
+	// 	}
+	// }
+
+	.hero + & {
+		margin-top: 0;
+	}
+
+	// div:nth-child(2) {
+	> div:last-of-type {
+
+		nav {
+			margin-top: rhythm(.5);
+			margin-bottom: rhythm(.5);
+		}
+
+		@include breakpoint(medium) {
+			display: flex;
+			align-items: baseline; // `stretch` is default!
+
+			nav {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+
+			nav:last-of-type {
+				margin-left: auto; // To align main navigation (first item) left, all other items right
+			}
+		}
 	}
 
 	footer {
 		padding-top: rhythm(1);
 		padding-bottom: rhythm(1);
+		color: $color-base-aqua;
+
+		@include breakpoint(medium) {
+			display: flex;
+
+			> p:last-child {
+				margin-left: auto; // To align masthead (first item) left, all other items right
+			}
+		}
 	}
 }

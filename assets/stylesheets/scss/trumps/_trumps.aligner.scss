@@ -5,53 +5,16 @@
 .aligner {
 	display: flex;
 	// flex-wrap: nowrap; // `nowrap` is default!
+	// align-items: baseline; // `stretch` is default!
 
 	/**
-	 * To align the first of (just) two items to the left and the second item
-	 * to the right, don't use `justify-content: space-between;` on wrapper or
-	 * container, but just add `aligner__item-right` class to the second item!
-	 */
+	* To align the first of (just) two items to the left and the second item
+	* to the right, don't use `justify-content: space-between;` on wrapper or
+	* container, but just add `aligner__item-right` class to the second item!
+	*/
 
 	&__item--right {
 		margin-left: auto;
-	}
-}
-
-/**
- * Start flex(box) from compact and up
- */
-
-.compact-aligner {
-
-	@include breakpoint(compact) {
-		display: flex;
-
-		&__item--right {
-			margin-left: auto;
-		}
-
-		// &--baseline {
-		// 	align-items: baseline;
-		// }
-	}
-}
-
-/**
- * Start flex(box) from compact and up
- */
-
-.medium-aligner {
-
-	@include breakpoint(medium) {
-		display: flex;
-
-		&__item--right {
-			margin-left: auto;
-		}
-
-		// &--baseline {
-		// 	align-items: baseline;
-		// }
 	}
 }
 
@@ -67,9 +30,9 @@
  * Align items such as their baselines align
  */
 
-.aligner--baseline {
-	align-items: baseline; // `stretch` is default!
-}
+// .aligner--baseline {
+// 	align-items: baseline; // `stretch` is default!
+// }
 
 /**
  * (Stack or) vertical align item(s) witin `aligner` (flex) container.
@@ -88,16 +51,16 @@
 	align-items: center; // `stretch` is default!
 }
 
-/**
- * Align item(s) to the top of the `aligner` (flex) container.
- */
+// /**
+//  * Align item(s) to the top of the `aligner` (flex) container.
+//  */
 
-.aligner--top {
-	justify-content: flex-start;
-	// justify-content: space-between;
-	text-align: left;
-	align-items: flex-start; // `stretch` is default!
-}
+// .aligner--top {
+// 	justify-content: flex-start;
+// 	// justify-content: space-between;
+// 	text-align: left;
+// 	align-items: flex-start; // `stretch` is default!
+// }
 
 /**
  * Align item(s) to the bottom of the `aligner` (flex) container.
@@ -110,6 +73,14 @@
 	align-items: flex-start; // `stretch` is default!
 }
 
+// /**
+//  * Wrap items onto multiple lines (from top to bottom) within `aligner` (flex) container.
+//  */
+
+// .aligner--justify {
+// 	justify-content: space-between;
+// }
+
 /**
  * Align item(s) to the right of the `aligner` (flex) container.
  */
@@ -117,3 +88,25 @@
 .aligner--right {
 	justify-content: flex-end;
 }
+
+// /**
+// * Align last item right, all others left
+// */
+
+// .aligner--justify-left {
+
+// 	> *:last-child {
+// 		margin-left: auto;
+// 	}
+// }
+
+// /**
+// * Align first item left, all others right
+// */
+
+// .aligner--justify-right {
+
+// 	> *:first-child {
+// 		margin-right: auto;
+// 	}
+// }

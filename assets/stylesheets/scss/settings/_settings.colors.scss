@@ -54,7 +54,8 @@ $color-blue-dark:               shade($color-base-blue, 32%);
 $color-aqua-quiet:              tint($color-base-aqua, 88%);
 $color-aqua-light:              tint($color-base-aqua, 24%);
 $color-aqua-m-light:            tint($color-base-aqua, 56%);
-$color-aqua-dark:               shade($color-base-aqua, 32%);
+$color-aqua-dark:               shade($color-base-aqua, 16%);
+$color-aqua-darker:             shade($color-base-aqua, 32%);
 
 // Greens
 
