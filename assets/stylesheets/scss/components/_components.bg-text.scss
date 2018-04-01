@@ -18,7 +18,7 @@
 	padding-left: rhythm(1);
 	color: $color-base-white;
 	pointer-events: none; // To make events "pass through" the element
-	-webkit-font-smoothing: antialiased; // [2] To prevent flickering of text in Safari (default is subpixel-rendering)
+	-webkit-font-smoothing: antialiased; // To prevent flickering of text in Safari (default is subpixel-rendering)
 }
 
 // .bg-text__title-hero {
@@ -42,7 +42,7 @@
 // .bg-text__meta {
 // 	@extend %text-small;
 
-// 	// -webkit-font-smoothing: antialiased; // [2] To prevent flickering of text in Safari (default is subpixel-rendering)
+// 	// -webkit-font-smoothing: antialiased; // To prevent flickering of text in Safari (default is subpixel-rendering)
 // }
 
 // .bg-text__title-hero,
