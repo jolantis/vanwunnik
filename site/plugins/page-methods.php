@@ -135,9 +135,10 @@ page::$methods['rel_alternate'] = function($page) {
 
 		$alternate = '';
 
-		foreach(site()->languages() as $language) {
+		foreach(site()->languages()->flip() as $language) {
 
-			if(site()->languages()->count() > 1 && site()->language() != $language && isset($page->inventory()['content'][$language->code()])) {
+			// if(site()->languages()->count() > 1 && site()->language() != $language && isset($page->inventory()['content'][$language->code()])) {
+			if(site()->languages()->count() > 1 && isset($page->inventory()['content'][$language->code()])) {
 				$alternate .= '<link rel="alternate" href="' . $page->url($language->code()) . '" hreflang="' . $language->locale() . '">'  . "\n";
 			}
 		}
