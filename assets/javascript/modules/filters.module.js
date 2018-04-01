@@ -4,6 +4,24 @@
 
 var Filters = (function () {
 
+	var lang = document.querySelector('html').getAttribute('lang');
+
+	var dict = {
+		en: {
+			'more': 'More series +',
+			'less': 'Less series -'
+		},
+		nl_NL: {
+			'more': 'Meer series +',
+			'less': 'Minder series -'
+		}
+	};
+
+	function translate(dict, lang, word) {
+		// console.log(dict[lang][word]);
+		return dict[lang][word];
+	}
+
 	function toggle(event) {
 		event.preventDefault();
 		var button = event.target;
@@ -12,14 +30,16 @@ var Filters = (function () {
 
 		if (expandparent.classList.contains('is-closed')) {
 			expandparent.removeChild(button);
-			button.textContent = 'Less −';
+			// button.textContent = 'Less −';
+			button.textContent = translate(dict, lang, 'less');
 			expandtarget.appendChild(button);
 			expandparent.classList.remove('is-closed');
 			expandparent.classList.add('is-open');
 		}
 		else {
 			expandtarget.removeChild(button);
-			button.textContent = 'More +';
+			// button.textContent = 'More +';
+			button.textContent = translate(dict, lang, 'more');
 			expandparent.insertBefore(button, expandtarget);
 			expandparent.classList.remove('is-open');
 			expandparent.classList.add('is-closed');
@@ -28,6 +48,7 @@ var Filters = (function () {
 
 	function init() {
 		var expandtarget = document.querySelector('.js-filters');
+		// var lang = document.querySelector('html').getAttribute('lang');
 
 		if (expandtarget) {
 			var expandparent = expandtarget.parentNode;
@@ -53,7 +74,8 @@ var Filters = (function () {
 					if (!button) {
 						var newButton = document.createElement('button');
 						newButton.setAttribute('aria-hidden', true);
-						newButton.textContent = 'More +';
+						// newButton.textContent = 'More +';
+						newButton.textContent = translate(dict, lang, 'more');
 						expandparent.classList.add('is-closed');
 						expandparent.classList.remove('is-visible');
 						expandparent.insertBefore(newButton, expandtarget);
