@@ -50,6 +50,14 @@
 		padding-bottom: rhythm(1);
 		color: $color-base-aqua;
 
+		a {
+
+			&:hover,
+			&:focus {
+				color: $color-link-dark;
+			}
+		}
+
 		@include breakpoint(medium) {
 			display: flex;
 
