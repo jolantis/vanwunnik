@@ -24,9 +24,9 @@
 			margin-left: rhythm(1);
 		}
 
-		@include breakpoint(medium) {
-			margin-left: 0; // reset left margin from medium and up
-		}
+		// @include breakpoint(medium) {
+		// 	margin-left: 0; // reset left margin from medium and up
+		// }
 	}
 
 	> li {
