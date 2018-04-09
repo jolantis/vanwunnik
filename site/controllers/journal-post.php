@@ -18,8 +18,8 @@ return function($site, $pages, $page, $args) {
 	$filter_value = (cookie::exists('filter_value' . $lang_code)) ? cookie::get('filter_value' . $lang_code) : false;
 
 	// Fetch the basic set of pages
-	$page_items   = ($filter_key && $filter_value) ? $page->siblings()->visible()->filterBy($filter_key, tagunslug($filter_value), ',') : $page->siblings()->visible();
-	// $index      = $page_items->indexOf($page);
+	// $page_items = ($filter_key && $filter_value) ? $page->siblings()->visible()->filterBy($filter_key, tagunslug($filter_value), ',') : $page->siblings()->visible();
+	$page_items = $page->siblings()->visible();
 
 	# Get translated posts only for current language
 	$page_items = $page_items->translated();
