@@ -8,12 +8,12 @@ var Filters = (function () {
 
 	var dict = {
 		en: {
-			'more': 'More series +',
-			'less': 'Less series -'
+			'more': 'more series +',
+			'less': 'less series -'
 		},
 		nl_NL: {
-			'more': 'Meer series +',
-			'less': 'Minder series -'
+			'more': 'meer series +',
+			'less': 'minder series -'
 		}
 	};
 

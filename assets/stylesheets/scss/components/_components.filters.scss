@@ -100,6 +100,7 @@
 
 .filterslist__item {
 	white-space: nowrap;
+	text-transform: lowercase;
 
 	a {
 		// color: $color-aqua-dark; // Color is defined by button (`button--simple`)!
