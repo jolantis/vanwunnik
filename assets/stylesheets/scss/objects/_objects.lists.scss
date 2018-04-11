@@ -11,7 +11,7 @@
 
 	li {
 		display: list-item;
-		margin-left: rhythm(1);
+		// margin-left: rhythm(1);
 
 		& > ul,
 		& > ol,
@@ -30,7 +30,19 @@
 	}
 
 	> li {
-		list-style-type: square; // e.g. disc, circle, square
+		// list-style-type: square; // e.g. disc, circle, square
+		list-style-type: none;
+		margin-left: rhythm(.65);
+
+		&:before {
+			content: "– ";
+			position: absolute;
+			margin-left: rhythm(-.65);
+		}
+
+		> p:last-of-type {
+			margin-bottom: rhythm(.75);
+		}
 	}
 }
 
@@ -49,6 +61,11 @@ ol.list {
 
 	li {
 		list-style: none;
+		margin-left: 0;
+
+		&:before {
+			content: none;
+		}
 	}
 }
 
