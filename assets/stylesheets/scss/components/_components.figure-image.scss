@@ -48,7 +48,7 @@
 		@include responsive-text-size($text-pico); // (Re)set font-size (it has been set to `0` by wrapping `.grid` element!)
 
 		margin-top: rhythm(.3);
-		// margin-bottom: rhythm(1.5);
+		margin-bottom: rhythm(.7);
 		// text-align: center; // Center align text in figcaption
 	}
 }
