@@ -19,20 +19,30 @@
 			margin-top: rhythm(.25);
 		}
 
-		& > ul,
-		& > ol {
-			margin-left: rhythm(1);
-		}
+		// & > ul,
+		// & > ol {
+
+		// 	> li {
+		// 		margin-left: rhythm(.65);
+		// 	}
+		// }
 
 		// @include breakpoint(medium) {
-		// 	margin-left: 0; // reset left margin from medium and up
+		// 	margin-left: 0 !important; // reset left margin from medium and up
 		// }
 	}
 
 	> li {
 		// list-style-type: square; // e.g. disc, circle, square
 		list-style-type: none;
+	}
+}
+
+ul.list {
+
+	> li {
 		margin-left: rhythm(.65);
+		// margin-left: rhythm(1.25);
 
 		&:before {
 			content: "– ";
@@ -47,8 +57,10 @@
 }
 
 ol.list {
+
 	> li {
 		list-style-type: decimal; // e.g. decimal, decimal-leading-zero, lower-roman, upper-roman, lower-greek, lower-latin, upper-latin, lower-alpha, upper-alpha, hebrew, etc.
+		margin-left: rhythm(1.25);
 	}
 }
 
