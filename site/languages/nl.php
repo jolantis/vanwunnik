@@ -32,8 +32,9 @@ l::set('cross desc', 'Een kruis of sluit pictogram');
 // Journal
 l::set('journal posts', 'Dagboek-items');
 l::set('posted', 'Geplaatst');
-l::set('posted in', 'Geplaatst in dagboek');
 l::set('posted on', 'Geplaatst op');
+l::set('posted in', 'Geplaatst in');
+l::set('posted in journal', 'Geplaatst in dagboek');
 l::set('on', 'op');
 l::set('recent posts', 'Recente dagboek-items');
 l::set('more posts', 'Meer dagboek-items');

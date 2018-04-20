@@ -48,7 +48,7 @@
 						<?php echo $journal_post_image->imageset('grid', ['output' => 'bgimage']); ?>
 						<span class="bg-text aligner aligner--stacked aligner--bottom">
 							<h3 class="bg-text__title"><?php echo $journal_post->title()->smartypants()->widont(); ?></h3>
-							<p class="bg-text__meta"><?php echo l::get('posted in') . ' &mdash;'; snippet('datetime', ['relative' => true, 'page' => $journal_post]); ?></p>
+							<p class="bg-text__meta"><?php echo l::get('posted in journal') . ' &mdash;'; snippet('datetime', ['relative' => true, 'page' => $journal_post]); ?></p>
 						</span>
 					</a>
 				</div>

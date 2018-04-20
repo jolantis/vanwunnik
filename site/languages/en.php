@@ -34,8 +34,9 @@ l::set('cross desc', 'A cross or close icon');
 // Journal
 l::set('journal posts', 'Journal posts');
 l::set('posted', 'Posted');
-l::set('posted in', 'Posted in journal');
 l::set('posted on', 'Posted on');
+l::set('posted in', 'Posted in');
+l::set('posted in journal', 'Posted in journal');
 l::set('on', 'on');
 l::set('recent posts', 'Recent journal posts');
 l::set('more posts', 'More journal posts');

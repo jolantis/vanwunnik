@@ -66,7 +66,7 @@
 				<div class="post-meta">
 
 				<?php if($page->tags()->isNotEmpty()): ?>
-					Posted in
+					<?php echo l::get('posted in'); ?>
 					<?php $i = 1; foreach($tags = str::split($page->tags(),',') as $tag): ?>
 						<a href="<?php echo $page->parent()->url() . '/tags/' . tagslug($tag); ?>" class="link link--no-history"><?php echo $tag; ?></a>
 						<?php
