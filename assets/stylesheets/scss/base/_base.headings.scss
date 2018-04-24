@@ -36,6 +36,8 @@
 
 .alpha-heading {
 	@extend %heading-settings;
+	@extend %text-break;
+	@extend %text-hyphen;
 	@extend %text-kern;
 	@include responsive-text-size($text-alpha);
 }
@@ -44,6 +46,8 @@
 
 .beta-heading {
 	@extend %heading-settings;
+	@extend %text-break;
+	@extend %text-hyphen;
 	@extend %text-kern;
 	@include responsive-text-size($text-beta);
 }
@@ -52,6 +56,8 @@
 
 .gamma-heading {
 	@extend %heading-settings;
+	@extend %text-break;
+	@extend %text-hyphen;
 	@include responsive-text-size($text-gamma);
 }
 
@@ -59,6 +65,8 @@
 
 .delta-heading {
 	@extend %heading-settings;
+	@extend %text-break;
+	@extend %text-hyphen;
 
 	@include breakpoint(large) {
 		@include responsive-text-size($text-delta);
@@ -70,5 +78,7 @@
 .epsilon-heading,
 .zeta-heading {
 	@extend %heading-settings;
+	@extend %text-break;
+	@extend %text-hyphen;
 	@include responsive-text-size($text-epsilon);
 }

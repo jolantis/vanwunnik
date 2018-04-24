@@ -53,25 +53,29 @@
  */
 
 %text-hyphen {
-	hyphens: auto;
+
+	:lang(en) & { // Hyphens for English is supported in most browsers
+		hyphens: auto;
+	}
 }
 
 %text-no-hyphen {
 	hyphens: none;
 }
 
+%text-break {
+	word-wrap: break-word;
+}
+
 %text-justify {
 	text-align: inherit;
 
 	@include breakpoint(medium) {
+
 		& {
 			text-align: justify;
 		}
 	}
-}
-
-%text-break {
-	word-wrap: break-word;
 }
 
 /**

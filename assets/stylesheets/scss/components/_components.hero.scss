@@ -39,6 +39,8 @@
 
 .hero__title {
 	@extend %heading-settings;
+	@extend %text-break;
+	@extend %text-hyphen;
 	@extend %text-kern;
 	@include responsive-text-size($text-bg-title-hero);
 
