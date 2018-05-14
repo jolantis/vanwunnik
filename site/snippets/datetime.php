@@ -9,7 +9,7 @@
 /////////////////////////////////////////////////////////////
 
 // Set date time and format
-$date_format = (isset($format)) ? $format : ((c::get('date.handler') == 'strftime') ? '%G-%m-%d' : 'Y-m-d');
+$date_format = (isset($format)) ? $format : ((c::get('date.handler') == 'strftime') ? '%Y-%m-%d' : 'Y-m-d');
 $date_time   = (c::get('date.handler') == 'strftime') ? '%FT%T+00:00' : 'c';
 
 ////////////////////////////////////////////////////////// ?>
