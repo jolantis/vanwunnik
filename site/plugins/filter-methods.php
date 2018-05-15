@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Custom page mothods
+ * Custom filter mothods
  *
  * @author      Jonathan van Wunnik <jonathan@artlantis.nl>
  *
