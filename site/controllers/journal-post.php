@@ -21,6 +21,11 @@ return function($site, $pages, $page, $args) {
 	// $page_items = ($filter_key && $filter_value) ? $page->siblings()->visible()->filterBy($filter_key, tagunslug($filter_value), ',') : $page->siblings()->visible();
 	$page_items = $page->siblings()->visible();
 
+	# Filter by date to exclude future posts (on production only)
+	if(c::get('environment') != 'local' && c::get('environment') != 'stage') {
+		$page_items = $page_items->filterBy('date', '<', time());
+	}
+
 	# Get translated posts only for current language
 	$page_items = $page_items->translated();
 
