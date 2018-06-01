@@ -39,7 +39,17 @@
 
 		<div class="grid grid--gutter">
 
-			<?php foreach($journal->children()->visible()->flip()->limit(4) as $journal_post): ?>
+			<?php
+				// Fetch the basic set of pages
+				$journal_items = $journal->children()->visible();
+
+				# Filter by date to exclude future posts (on production only)
+				if(c::get('environment') != 'local' && c::get('environment') != 'stage') {
+					$journal_items = $journal_items->filterBy('date', '<', time());
+				}
+			?>
+
+			<?php foreach($journal_items->flip()->limit(4) as $journal_post): ?>
 
 				<?php $journal_post_image = ($journal_post->images()->filterBy('filename','*=','main')->first()) ? $journal_post->images()->filterBy('filename','*=','main')->first() : $journal_post->images()->sortBy('sort', 'asc')->first(); ?>
 
