@@ -21,7 +21,7 @@
 	@include heading-font(400);
 
 	hanging-punctuation: first;
-	letter-spacing: .01rem;
+	// letter-spacing: .03rem;
 
 	.fonts-loaded & {
 		font-family: $heading-web-font;
