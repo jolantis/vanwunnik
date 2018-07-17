@@ -8,7 +8,7 @@
 
 .table {
 	margin-bottom: rhythm(1);
-	width: 100%;
+	max-width: 100%;
 	border-spacing: 0;
 
 	th,
@@ -18,13 +18,20 @@
 		text-align: left;
 	}
 
+	th + th,
+	td + td {
+		padding-left: rhythm(.5);
+	}
+
 	/* Table head */
 
 	th {
-		// font-weight: inherit;
-		font-weight: 700;
+		font-weight: inherit;
+		// font-weight: 700;
+		font-style: italic;
 		vertical-align: middle;
 		// white-space: nowrap
+		// background-color: rgba($color-base-aqua,.1);
 	}
 
 	/* Table cell */
@@ -53,6 +60,23 @@
 	[rowspan="1"] {
 		vertical-align: top;
 	}
+
+	/**
+	 * Responsiveness
+	 */
+
+	@include breakpoint(compact, max) {
+
+		// display: inline-block; // IE needs inline-block to position scrolling shadows otherwise use: display: block; max-width: min-content;
+		display: block;
+		max-width: min-content;
+		overflow-x: auto;
+		white-space: nowrap;
+
+		tbody {
+			-webkit-overflow-scrolling: touch;
+		}
+	}
 }
 
 .table__numerical {
@@ -68,26 +92,26 @@
 
 	th,
 	td {
-		padding: rhythm(.5);
+		padding: rhythm(.25) rhythm(.5);
 	}
 	th {
-		background-color: $color-base-black;
+		background-color: $color-base-aqua;
 		color: $color-base-white;
 	}
 	th + th,
 	td + td {
-		border-left: .125em solid $color-base-white;
+		border-left: 1px solid $color-base-white;
 	}
 
 	/* Zebra-striping */
 
 	tbody {
 		tr:nth-child(even) td {
-			background-color: $color-gray-m-light;
+			background-color: rgba($color-base-aqua,.1);
 		}
 		tr:hover td {
-			background-color: $color-base-black;
-			color: $color-base-white;
+			background-color: rgba($color-base-aqua,.3);
+			// color: $color-base-white;
 		}
 	}
 
@@ -125,22 +149,22 @@
  */
 
 .table--bordered {
-	// border-collapse: collapse; // Padding has no effect on table with border-collapse set to collapse!!!
+	border-collapse: collapse; // Padding has no effect on table with border-collapse set to collapse!!!
 
 	th,
 	td {
-		padding: rhythm(.5);
-		border: .125em solid $color-gray-m-light;
+		padding: rhythm(.25) rhythm(.5);
+		border: 1px solid rgba($color-base-aqua,.1);
 
 		&:empty {
 			border:none;
 		}
 	}
 	thead th {
-		border-bottom-width: .125em;
-		border-bottom-color: $color-base-black;
+		border-bottom-width: 1px;
+		border-bottom-color: $color-base-aqua;// rgba($color-base-aqua,.1);
 	}
 	tfoot tr {
-		border-top-width: .125em;
+		border-top-width: 1px;
 	}
 }

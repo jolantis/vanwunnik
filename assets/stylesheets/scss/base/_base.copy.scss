@@ -415,7 +415,9 @@
 
 	table {
 		@extend .table;
-	// 	@extend .table--striped;
+		@extend .table--bordered;
+		// @extend .table--rounded;
+		// @extend .table--striped;
 	}
 
 	/* Numerals
