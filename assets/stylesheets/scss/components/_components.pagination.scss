@@ -17,7 +17,7 @@
 			color: $color-link-dark;
 			// padding-top: rhythm(.25);
 			// padding-bottom: rhythm(.25);
-			white-space:nowrap;
+			// white-space: nowrap;
 		}
 
 		&--newer {
@@ -26,6 +26,10 @@
 
 		&--older {
 			padding-left: rhythm(.25);
+
+			a {
+				text-align: right;
+			}
 		}
 	}
 
