@@ -44,8 +44,8 @@ module.exports = function(grunt) {
 		jsfiles: {
 			head: [
 				'<%= project.scripts_plugins %>/enhance/enhance.js',
-				'<%= project.scripts_plugins %>/modernizr/modernizr.dev.js',
-				// '<%= project.scripts_plugins %>/modernizr/modernizr.min.js',    // ALWAYS use custom build modernizr in production!
+				// '<%= project.scripts_plugins %>/modernizr/modernizr.dev.js',
+				'<%= project.scripts_plugins %>/modernizr/modernizr.min.js',    // ALWAYS use custom build modernizr in production!
 				'<%= project.scripts_main %>/head.scripts.js',
 			],
 			main: {
