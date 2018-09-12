@@ -30,8 +30,8 @@ $fontobserver = (isset($_COOKIE['fonts_loaded']) && $_COOKIE['fonts_loaded'] == 
 	<link rel="dns-prefetch" href="https://www.google-analytics.com">
 
 	<link rel="preload" href="<?php echo site()->url(); ?>/assets/fonts/rosario/rosario-regular.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="<?php echo site()->url(); ?>/assets/fonts/rosario/rosario-italic.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="<?php echo site()->url(); ?>/assets/fonts/rosario/rosario-bold.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo site()->url(); ?>/assets/fonts/rosario/rosario-italic.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="<?php echo site()->url(); ?>/assets/fonts/rosario/rosario-bold-italic.woff2" as="font" type="font/woff2" crossorigin>
 
 	<title><?php echo $page->window_title(); if(c::get('environment') == 'local'): echo ' [DEV]'; endif; ?></title>
