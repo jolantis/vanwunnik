@@ -5,11 +5,11 @@
 // Font stacks
 // --------------------------------------------------------------------------
 
-$sans-font-stack:               "Helvetica Neue Thin", "HelveticaNeue-Thin", "Helvetica Light", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, ArialMT, sans-serif;
-$sans-web-font:                 "Rosario";
+$sans-font-stack:               "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, ArialMT, sans-serif;
+$sans-web-font-stack:           "Rosario", $sans-font-stack;
 
 $heading-font-stack:            "Helvetica Neue Bold", "HelveticaNeue-Bold", "Helvetica Bold", "Helvetica-Bold", "Arial Bold", "Arial-BoldMT", Helvetica, Helvetica, Arial, sans-serif;
-$heading-web-font:              "Rosario";
+$heading-web-font-stack:        "Rosario", $heading-font-stack;
 
 $serif-font-stack:              "Lucida Bright", "LucidaBright", Georgia, serif;
 $mono-font-stack:               Monaco, "Courier New", "CourierNewPSMT", Courier, monospace, serif;
