@@ -17,13 +17,16 @@
  */
 
 %heading-settings {
-	@include heading-font(400);
-
+	font-weight: normal;
 	hanging-punctuation: first;
 	letter-spacing: .03rem;
+}
+
+%heading-font {
+	@include heading-font(400);
 
 	.fonts-loaded & {
-		font-family: $heading-web-font;
+		font-family: $heading-web-font-stack; // Rosario
 	}
 }
 
@@ -35,6 +38,7 @@
 
 .alpha-heading {
 	@extend %heading-settings;
+	@extend %heading-font;
 	@extend %text-break;
 	@extend %text-hyphen;
 	@extend %text-kern;
@@ -45,6 +49,7 @@
 
 .beta-heading {
 	@extend %heading-settings;
+	@extend %heading-font;
 	@extend %text-break;
 	@extend %text-hyphen;
 	@extend %text-kern;
@@ -55,6 +60,7 @@
 
 .gamma-heading {
 	@extend %heading-settings;
+	@extend %heading-font;
 	@extend %text-break;
 	@extend %text-hyphen;
 	@include responsive-text-size($text-gamma);
@@ -64,6 +70,7 @@
 
 .delta-heading {
 	@extend %heading-settings;
+	@extend %heading-font;
 	@extend %text-break;
 	@extend %text-hyphen;
 
@@ -77,6 +84,7 @@
 .epsilon-heading,
 .zeta-heading {
 	@extend %heading-settings;
+	@extend %heading-font;
 	@extend %text-break;
 	@extend %text-hyphen;
 	@include responsive-text-size($text-epsilon);
