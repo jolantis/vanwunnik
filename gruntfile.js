@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_modules %>/overlay.module.js',
 					// '<%= project.scripts_modules %>/popup.module.js',
 					// '<%= project.scripts_modules %>/toggleview.module.js',
-				// Main
+					// Main
 					'<%= project.scripts_main %>/main.scripts.js',
 				],
 			},
