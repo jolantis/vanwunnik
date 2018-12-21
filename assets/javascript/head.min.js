@@ -1,5 +1,5 @@
 /**
- * Jos van Wunnik — Artist & Painter — v1.0.14 — 2018-12-14
+ * Jos van Wunnik — Artist & Painter — v1.0.15 — 2018-12-21
  * https://vanwunnik.com
  * Copyright (c) 2018 Jonathan van Wunnik (Artlantis.nl)
  * License MIT
