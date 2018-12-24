@@ -26,6 +26,9 @@ function tagslug($text) {
 	// replace & by -and-
 	$text = str_replace('&', '-and-', $text);
 
+	// replace poëzie by poezie
+	$text = str_replace('poëzie', 'poezie', $text);
+
 	// replace non letter or digits by -
 	$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
 

@@ -30,6 +30,9 @@ function tagunslug($text){
 	// replace -and- by <space>&<space>
 	$text = str_replace('-and-', ' & ', $text);
 
+	// replace poezie by poëzie
+	$text = str_replace('poezie', 'poëzie', $text);
+
 	// replace - buy <space>
 	$text = str_replace('-', ' ', $text);
 
