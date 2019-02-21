@@ -24,7 +24,7 @@ $fontobserver = (isset($_COOKIE['fonts_loaded']) && $_COOKIE['fonts_loaded'] == 
 <html class="no-js<?php echo $page_template . $fontobserver; ?>" lang="<?php echo $language_locale; ?>">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 	<?php /* <link rel="dns-prefetch" href="https://maps.googleapis.com"> */ ?>
 	<link rel="dns-prefetch" href="https://www.google-analytics.com">
