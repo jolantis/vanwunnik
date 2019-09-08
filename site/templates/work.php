@@ -73,7 +73,7 @@
 
 	<?php snippet('contentinfo'); ?>
 
-	<div class="overlay is-hidden js-overlay" aria-hidden="true">
+	<div class="overlay js-overlay" aria-hidden="true">
 		<?php /*
 		<div class="overlay__nav-left">
 			<a class="js-overlay-open" data-target="#ajax-container" href="<?php //echo $prev ?>">Previous</a>
